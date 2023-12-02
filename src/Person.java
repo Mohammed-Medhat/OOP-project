@@ -46,4 +46,17 @@ abstract public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
+        // abstract functions to be used in coach and costumer
+        abstract void displayDetails();
+        // show the basicInfo for costumer and coach
+    public void displayBasicInfo() {
+        System.out.println("ID: " + getId());
+        System.out.println("Name: " + name);
+        System.out.println("Gender: " + gender);
+        System.out.println("Address: " + getAddress());
+        System.out.println("Phone Number: " + getPhoneNumber());
+        System.out.println("Email: " + getEmail());
+    }
+
 }
