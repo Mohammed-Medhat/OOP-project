@@ -5,11 +5,11 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\DataBase.txt";
+        String filePath = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Customer.txt";
 
         // Writing to file
         List<String> contentListToWrite = new ArrayList<>();
-        contentListToWrite.add("Line ");
+        contentListToWrite.add("Line 11");
         contentListToWrite.add("Line 2");
         contentListToWrite.add("Line 3");
 
