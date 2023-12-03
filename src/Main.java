@@ -1,12 +1,29 @@
-import java.time.LocalDate;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
+
     public static void main(String[] args) {
-        LocalDate s = LocalDate.of(2023,5,5);
-        LocalDate e=LocalDate.of(2024,7,7);
-        MembershipPlan m=new MembershipPlan(s,e);
-        System.out.println("Remaining days: " + m.calculateDaysRemaining(e));
+        String filePath = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\DataBase.txt";
+
+        // Writing to file
+        List<String> contentListToWrite = new ArrayList<>();
+        contentListToWrite.add("Line ");
+        contentListToWrite.add("Line 2");
+        contentListToWrite.add("Line 3");
+
+        Files.writeFile(filePath, contentListToWrite);
+        System.out.println("Content has been written to the file successfully!");
+
+        // Reading from file
+        List<String> contentListRead = Files.readFileToList(filePath);
+
+        System.out.println("File Content as List:");
+        for (String line : contentListRead) {
+            System.out.println(line);
+        }
     }
 }
+
+
