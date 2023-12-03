@@ -1,7 +1,11 @@
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Equipments {
         protected String name;
         protected int quantity;
+    public List<Equipments> equipmentList;
         public Equipments(){
 
         }
@@ -10,15 +14,14 @@ public class Equipments {
             this.quantity = quantity;
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public int getQuantity() {
-            return quantity;
-        }
-
-        public void displayInfo() {
-            System.out.println("Equipment: " + name + ", Quantity: " + quantity);
-        }
+    public int getQuantity() {
+        return quantity;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    protected void displayInfo() {
+    }
+}
