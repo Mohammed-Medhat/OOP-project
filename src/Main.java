@@ -5,25 +5,21 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Customer.txt";
+        AddEquipment equipmentManager = new AddEquipment();
 
-        // Writing to file
-        List<String> contentListToWrite = new ArrayList<>();
-        contentListToWrite.add("Line 11");
-        contentListToWrite.add("Line 2");
-        contentListToWrite.add("Line 3");
+        // Example: Adding equipment from user input
+        equipmentManager.addEquipmentFromUserInput();
 
-        Files.writeFile(filePath, contentListToWrite);
-        System.out.println("Content has been written to the file successfully!");
+        // Example: Displaying all equipment
+        equipmentManager.displayInfo();
 
-        // Reading from file
-        List<String> contentListRead = Files.readFileToList(filePath);
 
-        System.out.println("File Content as List:");
-        for (String line : contentListRead) {
-            System.out.println(line);
+
+
+
+
         }
     }
-}
+
 
 
