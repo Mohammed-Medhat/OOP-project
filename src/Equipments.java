@@ -5,11 +5,14 @@ import java.util.Scanner;
 public class Equipments {
     protected String name;
     protected int quantity;
+    protected int eqcode;
+    private static int Count=0;
 
-
-    public Equipments(String name, int quantity) {
+    public Equipments(String name, int quantity,List<Equipments> equipmentList) {
         this.name = name;
         this.quantity = quantity;
+        Count++;
+        eqcode=Count;
     }
 
     public int getQuantity() {
@@ -20,9 +23,11 @@ public class Equipments {
         return name;
     }
 
+    public int getEqcode() {
+        return eqcode;
+    }
 
-
-    public void addEquipmentFromUserInput(List<Equipments> equipmentList) {
+    public static void addEquipmentFromUserInput(List<Equipments> equipmentList) {
         System.out.println("enter the number of euipments you want to add!:   ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -32,15 +37,23 @@ public class Equipments {
             String name = scanner.nextLine();
             System.out.print("Enter equipment quantity: ");
             int quantity = scanner.nextInt();
-            equipments[i]=new Equipments(name,quantity);
+            equipments[i]=new Equipments(name,quantity,equipmentList);
         }
         scanner.close();
     }
-    protected void displayInfo(List<Equipments> equipmentList) {
+    //for Admin
+    public void displayInfo(List<Equipments> equipmentList) {
         for (Equipments equipment : equipmentList)
         {
-        System.out.println("\n ******************\n Equipment: " + equipment.getName() + ",\nQuantity: " + equipment.getQuantity());
+        System.out.println("\n ******************\n Equipment : " + equipment.getName() + ",\nQuantity: " + equipment.getQuantity()+ "\nCode:  "+ equipment.getEqcode());
     }
+    }
+    //for costumer
+    public void displayName(List<Equipments> equipmentList){
+        for (Equipments equipment : equipmentList)
+        {
+            System.out.println("\n ******************\n Equipment : " + equipment.getName());
+        }
     }
 
 }
