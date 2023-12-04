@@ -3,12 +3,11 @@ abstract public class Person {
     public String name;
     public char gender;
     private String address;
-    private int phoneNumber;
+    private long phoneNumber;
     private String email;
 
 
-    public Person(int id, String name, char gender, String address, int phoneNumber, String email)
-    {
+    public Person(int id, String name, char gender, String address, long phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.gender = gender;
@@ -21,6 +20,7 @@ abstract public class Person {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -28,14 +28,16 @@ abstract public class Person {
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(int phoneNumber) {
+
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -47,9 +49,10 @@ abstract public class Person {
         this.email = email;
     }
 
-        // abstract functions to be used in coach and costumer
-        abstract void displayDetails();
-        // show the basicInfo for costumer and coach
+    // abstract functions to be used in coach and costumer
+    abstract void displayDetails();
+
+    // show the basicInfo for costumer and coach
     public void displayBasicInfo() {
         System.out.println("ID: " + getId());
         System.out.println("Name: " + name);
