@@ -6,24 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
         String filePath = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Customer.txt";
+        List<Customer> readCustomers = Files.readCustomersFromFile(filePath);
 
-        // Writing to file
-        List<String> contentListToWrite = new ArrayList<>();
-        contentListToWrite.add("Line 11");
-        contentListToWrite.add("Line 2");
-        contentListToWrite.add("Line 3");
+readCustomers.add(new Customer(15,"lol",'F',"d",051654,"ff"));
 
-        Files.writeFile(filePath, contentListToWrite);
-        System.out.println("Content has been written to the file successfully!");
 
-        // Reading from file
-        List<String> contentListRead = Files.readFileToList(filePath);
 
-        System.out.println("File Content as List:");
-        for (String line : contentListRead) {
-            System.out.println(line);
+
+                Customer firstCustomer = readCustomers.get(2);
+                System.out.println("Information of the first customer:");
+                System.out.println("Name: " + firstCustomer.getName());
+
+
+                System.out.println("Age: " + firstCustomer.getId());
+
+
+        Files.writeCustomersToFile(filePath, readCustomers);
         }
-    }
+
 }
+
 
 

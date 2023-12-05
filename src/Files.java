@@ -4,33 +4,31 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 public class Files {
-    public static void writeFile(String filePath, List<String> content) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            for (String line : content) {
-                writer.write(line);
-                writer.newLine(); // Add a newline after each line
-            }
+
+    public static void writeCustomersToFile(String filePath, List<Customer> customers) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            oos.writeObject(customers);
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception according to your needs
+            e.printStackTrace();
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public static List<Customer> readCustomersFromFile(String filePath) {
+        List<Customer> customers = new ArrayList<>();
 
-        public static List<String> readFileToList(String filePath) {
-        List<String> lines = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                lines.add(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception according to your needs
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
+            customers = (List<Customer>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + filePath);
+            e.printStackTrace();
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error reading customers from file: " + filePath);
+            e.printStackTrace();
         }
 
-        return lines;
+        return customers;
     }
-
 }

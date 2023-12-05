@@ -14,6 +14,10 @@ public class Customer extends Person {
         this.gymEquipments = new ArrayList<>();
         this.coach = null;
     }
+    public String toString() {
+        return  getId()+ gender +getAddress()+getPhoneNumber()+getEmail();
+    }
+
 
     public Subscription getSubscription() {
         return subscription;

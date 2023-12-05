@@ -1,4 +1,6 @@
-abstract public class Person {
+import java.io.Serializable;
+
+abstract public class Person implements Serializable {
     private int id;
     public String name;
     public char gender;
@@ -15,6 +17,10 @@ abstract public class Person {
         this.phoneNumber = phoneNumber;
         this.email = email;
 
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getId() {

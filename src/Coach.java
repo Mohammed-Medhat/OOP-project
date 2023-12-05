@@ -7,6 +7,9 @@ public class Coach extends Person
          super( id,  name,  gender,  address,  phoneNumber,  email);
          this.workingHours=workingHours;
      }
+    public String toString() {
+        return  getId()+ gender +getAddress()+getPhoneNumber()+getEmail();
+    }
 
     @Override
     public void displayDetails()
