@@ -1,24 +1,27 @@
 import java.io.Serializable;
 
 abstract public class Person implements Serializable {
-    private int id;
+    private static int id;
     public String name;
     public char gender;
     private String address;
-    private long phoneNumber;
+    private String phoneNumber;
     private String email;
+    private String password;
 
 
-    public Person(int id, String name, char gender, String address, long phoneNumber, String email) {
-        this.id = id;
+    public Person( String name, char gender, String address, String phoneNumber, String email,String password ) {
+        this.id++;
         this.name = name;
         this.gender = gender;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
-
+        this.password=password;
     }
-
+   public String getPassword(){
+        return password;
+   }
     public String getName() {
         return name;
     }
@@ -39,11 +42,11 @@ abstract public class Person implements Serializable {
         this.address = address;
     }
 
-    public long getPhoneNumber() {
+    public String  getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

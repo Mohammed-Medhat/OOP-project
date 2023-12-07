@@ -7,8 +7,8 @@ public class Customer extends Person {
     private Coach coach;
     private ArrayList<Equipments> gymEquipments;
 
-    public Customer(int id, String name, char gender, String address, long phoneNumber, String email) {
-        super(id, name, gender, address, phoneNumber, email);
+    public Customer( String name, char gender, String address, String phoneNumber, String email,String password) {
+        super( name, gender, address, phoneNumber, email,password);
         this.subscription = null;
         this.inBodies = new ArrayList<>();
         this.gymEquipments = new ArrayList<>();

@@ -1,2 +1,4 @@
-public class Subscription {
+import java.io.Serializable;
+
+public class Subscription implements Serializable {
 }

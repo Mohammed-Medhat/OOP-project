@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Equipments {
+public class Equipments implements Serializable {
     protected String name;
     protected int quantity;
     protected int eqcode;

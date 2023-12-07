@@ -2,9 +2,9 @@ public class Coach extends Person
 {
      public  int workingHours;
 
-     public Coach(int id, String name, char gender, String address, int phoneNumber, String email,int workingHours)
+     public Coach(String name, char gender, String address, String phoneNumber, String email,int workingHours,String password)
      {
-         super( id,  name,  gender,  address,  phoneNumber,  email);
+         super( name,  gender,  address,  phoneNumber,  email,password);
          this.workingHours=workingHours;
      }
     public String toString() {
