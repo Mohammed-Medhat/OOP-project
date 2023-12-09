@@ -12,6 +12,10 @@ public class MembershipPlan  {
         endDate=e;
 
     }
+    public int getStartDate()
+    {
+        return s;
+    }
 
     public static long calculateDaysRemaining( LocalDate endDate) {
         // Calculate the difference between end date and start date
