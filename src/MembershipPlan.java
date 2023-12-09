@@ -23,7 +23,7 @@ public class MembershipPlan  {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public static LocalDate getEndDate() {
         return endDate;
     }
 
@@ -60,9 +60,9 @@ public class MembershipPlan  {
         return getStartDate() + " " +getEndDate() + " " + getMonthlyPlan() + " " + getNo_of_months_registered() + " " + getNo_of_months_registered() + " " + getPrice_of_the_membership_plan();
     }
 
-    public static long calculateDaysRemaining(LocalDate endDate) {
+    public static long calculateDaysRemaining() {
         // Calculate the difference between end date and start date
-        return ChronoUnit.DAYS.between(LocalDate.now(), endDate);
+        return ChronoUnit.DAYS.between(LocalDate.now(), getEndDate());
     }
 
 }
