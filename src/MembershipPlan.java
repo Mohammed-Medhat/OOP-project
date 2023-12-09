@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-public class MembershipPlan extends Subscription {
+public class MembershipPlan  {
     LocalDate startDate;
     LocalDate endDate;
     String MonthlyPlan;
