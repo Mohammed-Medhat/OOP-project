@@ -1,22 +1,40 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Customer extends Person {
+    private int cusID;
     private Subscription subscription;
     private ArrayList<InBody> inBodies;
     private Coach coach;
     private ArrayList<Equipments> gymEquipments;
+    public Customer(){
 
-    public Customer( String name, char gender, String address, String phoneNumber, String email,String password) {
+    }
+    public Customer(int n,String name, char gender, String address, String phoneNumber, String email,String password) {
+
         super( name, gender, address, phoneNumber, email,password);
+
         this.subscription = null;
         this.inBodies = new ArrayList<>();
         this.gymEquipments = new ArrayList<>();
         this.coach = null;
+        setCusID(n);
     }
+
     public String toString() {
-        return  getId()+ gender +getAddress()+getPhoneNumber()+getEmail();
+        return cusID + " " + gender + " " + getAddress() + " " + getPhoneNumber() + " " + getEmail();
     }
+
+public void setCusID(int n){
+        this.cusID=n+1;
+
+}
+public int getCusId()
+{
+    return cusID;
+}
+
 
 
     public Subscription getSubscription() {
@@ -36,11 +54,21 @@ public class Customer extends Person {
     }
 
     public Coach getCoach() {
+
         return coach;
+    }
+    public boolean hasCoach(){
+        if(this.coach==null){
+            return true;
+        }
+        else {
+        return false;
+        }
     }
 
     public void setCoach(Coach coach) {
         this.coach = coach;
+        coach.numberofTrainee++;
     }
 
     public ArrayList<Equipments> getGymEquipments() {
