@@ -18,7 +18,11 @@ public class Subscription implements Serializable {
     public int getCustomer_id() {
         return customer_id;
     }
-    System.out.println(getCoach_id());
-    System.out.println(getCustomer_id());
-    System.out.println(membership.calculateDaysRemaining( LocalDate endDate));
+   
+    public void displaySubcription() {
+        System.out.println("your ID: "+getCustomer_id());
+        System.out.println("your coach ID: "+getCoach_id());
+        System.out.println("Subscription date"+membership.startDate);
+        System.out.println("Remaining subscription days: " + membership.calculateDaysRemaining(LocalDate endDate));
+    }
 }
