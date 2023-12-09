@@ -18,6 +18,10 @@ public class Subscription implements Serializable {
     public int getCustomer_id() {
         return customer_id;
     }
+   public String toString()
+   {
+      return getCoach_id() + " " + getCustomer_id();
+   }
    
     public void displaySubcription() {
         System.out.println("your ID: "+getCustomer_id());
