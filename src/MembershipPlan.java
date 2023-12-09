@@ -54,6 +54,11 @@ public class MembershipPlan  {
     public void setPrice_of_the_membership_plan(float price_of_the_membership_plan) {
         this.price_of_the_membership_plan = price_of_the_membership_plan;
     }
+    
+    public String toString()
+    {
+        return getStartDate() + " " +getEndDate() + " " + getMonthlyPlan() + " " + getNo_of_months_registered() + " " + getNo_of_months_registered() + " " + getPrice_of_the_membership_plan();
+    }
 
     public static long calculateDaysRemaining(LocalDate endDate) {
         // Calculate the difference between end date and start date
