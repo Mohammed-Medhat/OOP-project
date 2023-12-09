@@ -14,22 +14,52 @@ public class MembershipPlan  {
         this.no_of_months_registered = no_of_months_registered;
         this.price_of_the_membership_plan = price_of_the_membership_plan;
     }
-    public void LocalDate setStartDate(LocalDate start)
-    {
-        startDate = start;
-    }
-    
-    public LocalDate getStartDate()
-    {
+
+    public LocalDate getStartDate() {
         return startDate;
     }
-     public void LocalDate setEndDate(LocalDate end){
-         endDate = end;
-     }
-    public LocalDate getEndDate(){
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
         return endDate;
     }
 
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getMonthlyPlan() {
+        return MonthlyPlan;
+    }
+
+    public void setMonthlyPlan(String monthlyPlan) {
+        MonthlyPlan = monthlyPlan;
+    }
+
+    public int getNo_of_months_registered() {
+        return no_of_months_registered;
+    }
+
+    public void setNo_of_months_registered(int no_of_months_registered) {
+        this.no_of_months_registered = no_of_months_registered;
+    }
+
+    public float getPrice_of_the_membership_plan() {
+        return price_of_the_membership_plan;
+    }
+
+    public void setPrice_of_the_membership_plan(float price_of_the_membership_plan) {
+        this.price_of_the_membership_plan = price_of_the_membership_plan;
+    }
+
+    public static long calculateDaysRemaining(LocalDate endDate) {
+        // Calculate the difference between end date and start date
+        return ChronoUnit.DAYS.between(LocalDate.now(), endDate);
+    }
+}
     public static long calculateDaysRemaining( LocalDate endDate) {
         // Calculate the difference between end date and start date
         return ChronoUnit.DAYS.between(LocalDate.now(), endDate);
