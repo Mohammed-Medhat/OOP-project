@@ -59,9 +59,5 @@ public class MembershipPlan  {
         // Calculate the difference between end date and start date
         return ChronoUnit.DAYS.between(LocalDate.now(), endDate);
     }
-}
-    public static long calculateDaysRemaining( LocalDate endDate) {
-        // Calculate the difference between end date and start date
-        return ChronoUnit.DAYS.between(LocalDate.now(), endDate);
-    }
+
 }
