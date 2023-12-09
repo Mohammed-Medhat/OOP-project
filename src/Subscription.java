@@ -22,7 +22,7 @@ public class Subscription implements Serializable {
     public void displaySubcription() {
         System.out.println("your ID: "+getCustomer_id());
         System.out.println("your coach ID: "+getCoach_id());
-        System.out.println("Subscription date"+membership.startDate);
-        System.out.println("Remaining subscription days: " + membership.calculateDaysRemaining(LocalDate endDate));
+        System.out.println("Subscription date"+membership.getStartDate());
+        System.out.println("Remaining subscription days: " + membership.calculateDaysRemaining());
     }
 }
