@@ -9,13 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
        Scanner scanner = new Scanner(System.in);
-        System.out.print("sign as \n1-admin\n2-customer \n");
-        int type=scanner.nextInt();
-        scanner.nextLine();
-        String filePathCustomer = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Customer.txt";
+//        System.out.print("sign as \n1-admin\n2-customer \n");
+//        int type=scanner.nextInt();
+//        scanner.nextLine();
+        String filePathPerson = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Person.txt";
         String filePathCoach = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Coach.txt";
-        List<Customer> readCustomers= Files.readCustomersFromFile(filePathCustomer);
-       List<Coach> readCoaches = Files.readCoachFromFile(filePathCoach);
 
 //        List<User.Coach> readCoaches =new ArrayList<>();
 //       List<User.Customer> readCustomers =new ArrayList<>();
