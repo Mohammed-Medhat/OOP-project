@@ -123,6 +123,7 @@ public class Main {
 
                     if (LoginSystem.login(readCustomers, username, password)) {
                         System.out.println("Login successful!");
+                        displaySubcription();
                         break outerLoop;
                     } else if(username.equals("-1")) {
                     break;
