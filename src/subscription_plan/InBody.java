@@ -1,3 +1,5 @@
+package subscription_plan;
+
 import java.util.Date;
 
 public class InBody {
@@ -94,7 +96,7 @@ public class InBody {
         return daysDifference >= 30;
     }
 
-    // Record a new InBody measurement
+    // Record a new subscription_plan.InBody measurement
     public void recordInBodyMeasurement(Date dateOfInBody, double height, double totalWeight, double bodyFatMass,
                                         double minerals, double totalBodyWater, double protein) {
         if (canPerformInBodyMeasurement()) {
@@ -105,15 +107,15 @@ public class InBody {
             this.minerals = minerals;
             this.totalBodyWater = totalBodyWater;
             this.protein = protein;
-            System.out.println("InBody measurement recorded successfully.");
+            System.out.println("subscription_plan.InBody measurement recorded successfully.");
         } else {
-            System.out.println("Sorry, you are allowed to perform only one InBody measurement every month.");
+            System.out.println("Sorry, you are allowed to perform only one subscription_plan.InBody measurement every month.");
         }
     }
 
     @Override
     public String toString() {
-        return "InBody{" +
+        return "subscription_plan.InBody{" +
                 "dateOfInBody=" + dateOfInBody +
                 ", height=" + height +
                 ", totalWeight=" + totalWeight +

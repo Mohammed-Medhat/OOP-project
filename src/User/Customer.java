@@ -1,6 +1,7 @@
+package User;
+
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Customer extends Person {
     private int cusID;
@@ -85,11 +86,11 @@ public int getCusId()
             Coach customerCoach = customer.getCoach();
 
             if (customerCoach != null) {
-                System.out.println("Coach Info for Customer " + customer.name + ":");
+                System.out.println("User.Coach Info for User.Customer " + customer.name + ":");
                 customerCoach.displayBasicInfo();
                 customerCoach.displayDetails();
             } else {
-                System.out.println("No assigned coach for Customer " + customer.name + ".");
+                System.out.println("No assigned coach for User.Customer " + customer.name + ".");
             }
         } catch (Exception e) {
             System.out.println("Error getting coach info: " + e.getMessage());
@@ -136,8 +137,8 @@ public int getCusId()
 
             for (InBody inBody : inBodies) {
                 if (inBody.getDateOfInBody().equals(specificDate)) {
-                    System.out.println("InBody Information at " + specificDate + ":");
-                    System.out.println("Date of InBody: " + inBody.getDateOfInBody());
+                    System.out.println("subscription_plan.InBody Information at " + specificDate + ":");
+                    System.out.println("Date of subscription_plan.InBody: " + inBody.getDateOfInBody());
                     System.out.println("Height: " + inBody.getHeight() + " m");
                     System.out.println("Total Weight: " + inBody.getTotalWeight() + " kg");
                     System.out.println("Body Fat Mass: " + inBody.getBodyFatMass() + " kg");
@@ -150,7 +151,7 @@ public int getCusId()
             }
 
             if (!found) {
-                System.out.println("No InBody information available for the specified date.");
+                System.out.println("No subscription_plan.InBody information available for the specified date.");
             }
         } catch (Exception e) {
             System.out.println("Error displaying in-body information: " + e.getMessage());
@@ -178,17 +179,17 @@ public int getCusId()
                 System.out.println("Current BMI: " + currentBMI);
                 System.out.println("Weight to reduce to achieve BMI of " + targetBMI + ": " + weightToReduce + " kg");
             } else {
-                System.out.println("No InBody information available to calculate weight reduction.");
+                System.out.println("No subscription_plan.InBody information available to calculate weight reduction.");
             }
         } catch (Exception e) {
             System.out.println("Error calculating weight reduction: " + e.getMessage());
         }
     }
 
-    // Override the abstract method in Person class
+    // Override the abstract method in User.Person class
     @Override
     void displayDetails() {
-        System.out.println("Customer Details:");
+        System.out.println("User.Customer Details:");
         displayBasicInfo();
 
     }

@@ -1,5 +1,7 @@
-import java.io.*;
-import java.util.ArrayList;
+import User.Coach;
+import User.Customer;
+import User.Person;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,13 +12,14 @@ public class Main {
         System.out.print("sign as \n1-admin\n2-customer \n");
         int type=scanner.nextInt();
         scanner.nextLine();
-        String filePathCustomer = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Customer.txt";
-        String filePathCoach = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Coach.txt";
+        String filePathCustomer = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Customer.txt";
+        String filePathCoach = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Coach.txt";
         List<Customer> readCustomers= Files.readCustomersFromFile(filePathCustomer);
        List<Coach> readCoaches = Files.readCoachFromFile(filePathCoach);
 
-//        List<Coach> readCoaches =new ArrayList<>();
-//       List<Customer> readCustomers =new ArrayList<>();
+//        List<User.Coach> readCoaches =new ArrayList<>();
+//       List<User.Customer> readCustomers =new ArrayList<>();
+
 
 
 
@@ -24,24 +27,24 @@ public class Main {
 
 
 
-//Customer addded in files
-//       readCustomers.add(new Customer(0,"Mohammed",'m',"ain shams","01014487283","mo@gmail.com","mamadou"));
+//User.Customer addded in files
+//       readCustomers.add(new User.Customer(0,"Mohammed",'m',"ain shams","01014487283","mo@gmail.com","mamadou"));
 
-//       readCustomers.add(new Customer(1,"othman",'m',"8 meter","01215312105","mo@gmail.com","3ossjr"));
+//       readCustomers.add(new User.Customer(1,"othman",'m',"8 meter","01215312105","mo@gmail.com","3ossjr"));
 
-//        readCustomers.add(new Customer(2,"hady",'m',"obor","01215643211","mo@gmail.com","12345"));
+//        readCustomers.add(new User.Customer(2,"hady",'m',"obor","01215643211","mo@gmail.com","12345"));
 
-//        readCustomers.add(new Customer(3,"ali",'m',"maadi","01562156463","mo@gmail.com","12345"));
+//        readCustomers.add(new User.Customer(3,"ali",'m',"maadi","01562156463","mo@gmail.com","12345"));
 
 //        //equipment added in files
 //
 //        //coaches added in files
-//        readCoaches.add(new Coach("big rammi",'M',"ainshams","152316","rami@gmail.com",7,"123456789",0,0));
+//        readCoaches.add(new User.Coach("big rammi",'M',"ainshams","152316","rami@gmail.com",7,"123456789",0,0));
 
 //
-//        readCoaches.add(new Coach("fargymawi",'M',"abbasia","152316","far@gmail.com",7,"123456789",0,1));
+//        readCoaches.add(new User.Coach("fargymawi",'M',"abbasia","152316","far@gmail.com",7,"123456789",0,1));
 
-//        readCoaches.add(new Coach("Cbunk",'M',"obor","152316","bunk@gmail.com",7,"123456789",0,2));
+//        readCoaches.add(new User.Coach("Cbunk",'M',"obor","152316","bunk@gmail.com",7,"123456789",0,2));
 
 
 
@@ -75,7 +78,7 @@ public class Main {
                 int x=scanner.nextInt();
                 if(x==1){
 
-                    System.out.print("Customer ID: ");
+                    System.out.print("User.Customer ID: ");
                     int customerid =scanner.nextInt();
                     scanner.nextLine();
 

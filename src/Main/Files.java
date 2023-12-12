@@ -1,3 +1,8 @@
+package Main;
+
+import User.Coach;
+import User.Customer;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

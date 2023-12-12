@@ -1,3 +1,5 @@
+package subscription_plan;
+
 import java.io.Serializable;
 
 public class Subscription implements Serializable {
@@ -26,7 +28,7 @@ public class Subscription implements Serializable {
     public void displaySubcription() {
         System.out.println("your ID: "+getCustomer_id());
         System.out.println("your coach ID: "+getCoach_id());
-        System.out.println("Subscription date"+membership.getStartDate());
+        System.out.println("subscription_plan.Subscription date"+membership.getStartDate());
         System.out.println("Remaining subscription days: " + membership.calculateDaysRemaining());
     }
 }
