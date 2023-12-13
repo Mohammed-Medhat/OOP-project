@@ -1,11 +1,12 @@
-package Main;
+package System;
 
 import User.Coach;
 import User.Customer;
-import subscription_plan.Subscription;
+import Subscription_plan.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Gym {
     private String Team_27;
@@ -14,7 +15,7 @@ public class Gym {
     private final String  gphonenum = "01272825488";
     private List <String> gequipment = new ArrayList<>();
     public static List <Coach> gcoach = new ArrayList<>();
-    public static List <Subscription> gsub = new ArrayList<>();
+    public static List <subcription> gsub = new ArrayList<>();
     public static List <Customer> gcus = new ArrayList<>();
 
 }

@@ -1,5 +1,4 @@
-package subscription_plan;
-import java.time.LocalDate;
+package Subscription_plan;
 import java.util.Scanner;
 
 public class subcription {

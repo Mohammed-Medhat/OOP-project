@@ -1,6 +1,4 @@
-package Main;
-
-import User.Coach;
+package System;
 
 import java.io.Serializable;
 import java.util.List;

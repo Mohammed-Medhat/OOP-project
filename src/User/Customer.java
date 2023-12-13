@@ -1,11 +1,13 @@
 package User;
-
+import System.*;
+import Subscription_plan.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.Flow;
 
 public class Customer extends Person {
     private int cusID;
-    private Subscription subscription;
+    private subcription subscription;
     private ArrayList<InBody> inBodies;
     private Coach coach;
     private ArrayList<Equipments> gymEquipments;
@@ -38,11 +40,11 @@ public int getCusId()
 
 
 
-    public Subscription getSubscription() {
+    public subcription getSubscription() {
         return subscription;
     }
 
-    public void setSubscription(Subscription subscription) {
+    public void setSubscription(subcription subscription) {
         this.subscription = subscription;
     }
 
@@ -111,24 +113,24 @@ public int getCusId()
     }
 
     // : Display membership plan details
-    public void displayMembershipPlanDetails() {
-        try {
-            if (subscription != null && subscription instanceof MembershipPlan) {
-                MembershipPlan membershipPlan = (MembershipPlan) subscription;
-                System.out.println("Membership Plan Details:");
-                System.out.println("Start Date: " + membershipPlan.startDate);
-                System.out.println("End Date: " + membershipPlan.endDate);
-                System.out.println("Monthly Plan: " + membershipPlan.MonthlyPlan);
-                System.out.println("Number of Months Registered: " + membershipPlan.no_of_months_registered);
-                System.out.println("Price of the Membership Plan: " + membershipPlan.price_of_the_membership_plan);
-                System.out.println("Days Remaining: " + MembershipPlan.calculateDaysRemaining(membershipPlan.endDate));
-            } else {
-                System.out.println("No membership plan information available.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error displaying membership plan details: " + e.getMessage());
-        }
-    }
+//    public void displayMembershipPlanDetails() {
+//        try {
+//            if (subscription != null && subscription instanceof MembershipPlan) {
+//                MembershipPlan membershipPlan = (MembershipPlan) subscription;
+//                System.out.println("Membership Plan Details:");
+//                System.out.println("Start Date: " + membershipPlan.startDate);
+//                System.out.println("End Date: " + membershipPlan.endDate);
+//                System.out.println("Monthly Plan: " + membershipPlan.MonthlyPlan);
+//                System.out.println("Number of Months Registered: " + membershipPlan.no_of_months_registered);
+//                System.out.println("Price of the Membership Plan: " + membershipPlan.price_of_the_membership_plan);
+//                System.out.println("Days Remaining: " + MembershipPlan.calculateDaysRemaining(membershipPlan.endDate));
+//            } else {
+//                System.out.println("No membership plan information available.");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error displaying membership plan details: " + e.getMessage());
+//        }
+//    }
 
     //  Display in-body information at a specific date
     public void displayInBodyInformation(Date specificDate) {
