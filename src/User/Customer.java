@@ -1,13 +1,14 @@
 package User;
-import subscription_plan.*;
 import System.*;
+import Subscription_plan.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.Flow;
 import java.util.List;
 
 public class Customer extends Person {
     private int cusID;
-    private Subscription subscription;
+    private subcription subscription;
     private ArrayList<InBody> inBodies;
     private Coach coach;
     private ArrayList<Equipments> gymEquipments;
@@ -40,11 +41,11 @@ public int getCusId()
 
 
 
-    public Subscription getSubscription() {
+    public subcription getSubscription() {
         return subscription;
     }
 
-    public void setSubscription(Subscription subscription) {
+    public void setSubscription(subcription subscription) {
         this.subscription = subscription;
     }
 
@@ -77,7 +78,6 @@ public int getCusId()
     public ArrayList<Equipments> getGymEquipments() {
         return gymEquipments;
     }
-
 
     public void addGymEquipment(Equipments equipment) {
         gymEquipments.add(equipment);
