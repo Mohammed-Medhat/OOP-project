@@ -151,28 +151,28 @@ public class Admin extends Person implements Serializable {
         }
 
 
-//    public void deleteCustomer(Customer customer) {
-//        // Implement customer deletion logic
-//        int customerIdTodelete = deleteCustomer.getcusId();
-//
-//        // Check if the coach with the given ID exists
-//        boolean cutomerExists = false;
-//        for (int i = 0; i < gcus.size(); i++) {
-//            Customer existingCustomers = gcus.get(i);
-//            if (existingCustomers.getCusId() == customerIdTodelete) {
-//                cutomerExists = true;
-//                // Update coach properties with the new values
-//                gcus.remove(i);
-//                System.out.println("Coach Deleted successfully.");
-//                break;
-//            }
-//        }
-//
-//        if (!cutomerExists) {
-//            System.out.println("Coach with ID " + customerIdTodelete + " not found.");
-//        }
-//
-//    }
+    public void deleteCustomer(Customer customer) {
+        // Implement customer deletion logic
+        int customerIdTodelete = customer.getCusId();
+
+        // Check if the coach with the given ID exists
+        boolean cutomerExists = false;
+        for (int i = 0; i < gcus.size(); i++) {
+            Customer existingCustomers = gcus.get(i);
+            if (existingCustomers.getCusId() == customerIdTodelete) {
+                cutomerExists = true;
+                // Update coach properties with the new values
+                gcus.remove(i);
+                System.out.println("Coach Deleted successfully.");
+                break;
+            }
+        }
+
+        if (!cutomerExists) {
+            System.out.println("Coach with ID " + customerIdTodelete + " not found.");
+        }
+
+    }
 
     //    to be called
     public void showSubscriptionHistory(Customer customer) {

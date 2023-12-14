@@ -95,7 +95,7 @@ Admin admin=new Admin();
         personList.clear();
         personList.addAll(Gym.gcus);
         personList.addAll(Gym.gcoach);
-       
+
         Files.writePeopleToFile(personList, filePathPerson);
     }
 }
