@@ -1,4 +1,6 @@
-package Main;
+package System;
+
+import User.Coach;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.Scanner;
 public class Equipments implements Serializable {
     protected String name;
     protected int quantity;
-    protected int eqcode;
+    protected static int eqcode;
     private static int Count=0;
 
     public Equipments(String name, int quantity,List<Equipments> equipmentList) {
@@ -16,7 +18,6 @@ public class Equipments implements Serializable {
         Count++;
         eqcode=Count;
     }
-
     public int getQuantity() {
         return quantity;
     }
@@ -25,7 +26,7 @@ public class Equipments implements Serializable {
         return name;
     }
 
-    public int getEqcode() {
+    public static int getEqcode() {
         return eqcode;
     }
 

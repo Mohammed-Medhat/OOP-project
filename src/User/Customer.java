@@ -1,7 +1,9 @@
 package User;
-
+import subscription_plan.*;
+import System.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Customer extends Person {
     private int cusID;
@@ -76,6 +78,7 @@ public int getCusId()
         return gymEquipments;
     }
 
+
     public void addGymEquipment(Equipments equipment) {
         gymEquipments.add(equipment);
     }
@@ -96,6 +99,15 @@ public int getCusId()
             System.out.println("Error getting coach info: " + e.getMessage());
         }
     }
+    public static boolean iscustExists(int id, List<Customer> existingCustomers) {
+        // Check if the ID already exists in the list of customers
+        for (Customer customer : existingCustomers) {
+            if (customer.getCusId() == id) {
+                return true; // ID already exists
+            }
+        }
+        return false; // ID is unique
+    }
 
 
     //  Display all Gym Equipment
@@ -111,24 +123,24 @@ public int getCusId()
     }
 
     // : Display membership plan details
-    public void displayMembershipPlanDetails() {
-        try {
-            if (subscription != null && subscription instanceof MembershipPlan) {
-                MembershipPlan membershipPlan = (MembershipPlan) subscription;
-                System.out.println("Membership Plan Details:");
-                System.out.println("Start Date: " + membershipPlan.startDate);
-                System.out.println("End Date: " + membershipPlan.endDate);
-                System.out.println("Monthly Plan: " + membershipPlan.MonthlyPlan);
-                System.out.println("Number of Months Registered: " + membershipPlan.no_of_months_registered);
-                System.out.println("Price of the Membership Plan: " + membershipPlan.price_of_the_membership_plan);
-                System.out.println("Days Remaining: " + MembershipPlan.calculateDaysRemaining(membershipPlan.endDate));
-            } else {
-                System.out.println("No membership plan information available.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error displaying membership plan details: " + e.getMessage());
-        }
-    }
+//    public void displayMembershipPlanDetails() {
+//        try {
+//            if (subscription != null && subscription instanceof MembershipPlan) {
+//                MembershipPlan membershipPlan = (MembershipPlan) subscription;
+//                System.out.println("Membership Plan Details:");
+//                System.out.println("Start Date: " + membershipPlan.startDate);
+//                System.out.println("End Date: " + membershipPlan.endDate);
+//                System.out.println("Monthly Plan: " + membershipPlan.MonthlyPlan);
+//                System.out.println("Number of Months Registered: " + membershipPlan.no_of_months_registered);
+//                System.out.println("Price of the Membership Plan: " + membershipPlan.price_of_the_membership_plan);
+//                System.out.println("Days Remaining: " + MembershipPlan.calculateDaysRemaining(membershipPlan.endDate));
+//            } else {
+//                System.out.println("No membership plan information available.");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error displaying membership plan details: " + e.getMessage());
+//        }
+//    }
 
     //  Display in-body information at a specific date
     public void displayInBodyInformation(Date specificDate) {

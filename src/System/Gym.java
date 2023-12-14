@@ -1,4 +1,4 @@
-package Main;
+package System;
 
 import User.Coach;
 import User.Customer;
@@ -12,7 +12,7 @@ public class Gym {
     private final String  gname = "Team_27";
     private final String  gadress = "elabsya";
     private final String  gphonenum = "01272825488";
-    private List <String> gequipment = new ArrayList<>();
+    public static List <Equipments> gequipment = new ArrayList<>();
     public static List <Coach> gcoach = new ArrayList<>();
     public static List <Subscription> gsub = new ArrayList<>();
     public static List <Customer> gcus = new ArrayList<>();

@@ -1,4 +1,4 @@
-package Main;
+package System;
 
 import User.Coach;
 import User.Customer;

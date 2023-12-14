@@ -3,7 +3,7 @@ Gym management systems provide fitness businesses the functionality to
 
 manage schedules, memberships, and facilities.
 The Gym management systems should keep track of these main entities.
-1. GYM: (Name, Address, Phone number, Sports Main.Equipments, List of coaches,
+1. GYM: (Name, Address, Phone number, Sports System.Equipments, List of coaches,
 List of subscriptions).
 2. Equipment: (Equipment name (such as treadmill, rowing machine, leg curl,
 etc..), Equipment code, Quantity of this Equipment in the gym, and Equipment
