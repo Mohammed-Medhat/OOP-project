@@ -1,41 +1,54 @@
-abstract public class Person {
-    private int id;
+package User;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+abstract public class Person implements Serializable {
+
     public String name;
     public char gender;
     private String address;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
+    private String password;
 
+    public Person( String name, char gender, String address, String phoneNumber, String email, String password) {
 
-    public Person(int id, String name, char gender, String address, int phoneNumber, String email)
-    {
-        this.id = id;
         this.name = name;
         this.gender = gender;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
-
+        this.password = password;
     }
 
-    public int getId() {
-        return id;
+    protected Person() {
     }
-    public void setId(int id) {
-        this.id = id;
+
+    public String getPassword(){
+        return password;
+   }
+    public String getName() {
+        return name;
     }
+
+
+
+
 
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public int getPhoneNumber() {
+    public String  getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(int phoneNumber) {
+
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -47,16 +60,24 @@ abstract public class Person {
         this.email = email;
     }
 
-        // abstract functions to be used in coach and costumer
-        abstract void displayDetails();
-        // show the basicInfo for costumer and coach
+    // abstract functions to be used in coach and costumer
+    abstract void displayDetails();
+
+    // show the basicInfo for costumer and coach
     public void displayBasicInfo() {
-        System.out.println("ID: " + getId());
+
         System.out.println("Name: " + name);
         System.out.println("Gender: " + gender);
         System.out.println("Address: " + getAddress());
         System.out.println("Phone Number: " + getPhoneNumber());
         System.out.println("Email: " + getEmail());
+    }
+    private static class IdGenerator {
+        private static int nextId = 1;
+
+        public static int nextId() {
+            return nextId++;
+        }
     }
 
 }
