@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 public class Customer extends Person {
     private int cusID;
@@ -8,6 +8,10 @@ public class Customer extends Person {
     private ArrayList<InBody> inBodies;
     private Coach coach;
     private ArrayList<Equipments> gymEquipments;
+    private MembershipPlan membership;
+    private static final double TARGET_BMI = 25.0;
+
+
     public Customer(){
 
     }
@@ -19,6 +23,7 @@ public class Customer extends Person {
         this.inBodies = new ArrayList<>();
         this.gymEquipments = new ArrayList<>();
         this.coach = null;
+        this.membership = null;
         setCusID(n);
     }
 
@@ -26,7 +31,15 @@ public class Customer extends Person {
         return cusID + " " + gender + " " + getAddress() + " " + getPhoneNumber() + " " + getEmail();
     }
 
-public void setCusID(int n){
+    public MembershipPlan getMembership() {
+        return membership;
+    }
+
+    public void setMembership(MembershipPlan membership) {
+        this.membership = membership;
+    }
+
+    public void setCusID(int n){
         this.cusID=n+1;
 
 }
@@ -54,16 +67,10 @@ public int getCusId()
     }
 
     public Coach getCoach() {
-
         return coach;
     }
     public boolean hasCoach(){
-        if(this.coach==null){
-            return true;
-        }
-        else {
-        return false;
-        }
+        return this.coach != null;
     }
 
     public void setCoach(Coach coach) {
@@ -98,7 +105,7 @@ public int getCusId()
 
 
     //  Display all Gym Equipment
-    public void displayAllGymEquipment() {
+    public void displayGymEquipmentList() {
         try {
             System.out.println("List of Gym Equipment:");
             for (Equipments equipment : gymEquipments) {
@@ -112,15 +119,15 @@ public int getCusId()
     // : Display membership plan details
     public void displayMembershipPlanDetails() {
         try {
-            if (subscription != null && subscription instanceof MembershipPlan) {
-                MembershipPlan membershipPlan = (MembershipPlan) subscription;
-                System.out.println("Membership Plan Details:");
-                System.out.println("Start Date: " + membershipPlan.startDate);
-                System.out.println("End Date: " + membershipPlan.endDate);
-                System.out.println("Monthly Plan: " + membershipPlan.MonthlyPlan);
-                System.out.println("Number of Months Registered: " + membershipPlan.no_of_months_registered);
-                System.out.println("Price of the Membership Plan: " + membershipPlan.price_of_the_membership_plan);
-                System.out.println("Days Remaining: " + MembershipPlan.calculateDaysRemaining(membershipPlan.endDate));
+            if (subscription != null) {
+                System.out.println("Membership Plan Information:");
+                System.out.println("Customer ID: " + getCusId());
+                System.out.println("Customer Name: " + name);
+                System.out.println("Subscription date: " + membership.getStartDate());
+                System.out.println("Remaining subscription days: " + MembershipPlan.calculateDaysRemaining());
+                System.out.println("Monthly Plan: " + membership.getMonthlyPlan());
+                System.out.println("Number of months registered: " + membership.getNo_of_months_registered());
+                System.out.println("Price of the membership plan: " + membership.getPrice_of_the_membership_plan());
             } else {
                 System.out.println("No membership plan information available.");
             }
@@ -166,17 +173,16 @@ public int getCusId()
     //  Display how many kilos need to be reduced according to his body
     public void displayWeightToReduce() {
         try {
-            double targetBMI = 25.0; // Set your target BMI
             if (!inBodies.isEmpty()) {
                 InBody latestInBody = inBodies.get(inBodies.size() - 1);
 
                 double currentBMI = calculateBMI(latestInBody);
-                double targetWeight = targetBMI * (latestInBody.getHeight() * latestInBody.getHeight());
+                double targetWeight = TARGET_BMI * (latestInBody.getHeight() * latestInBody.getHeight());
 
                 double weightToReduce = latestInBody.getTotalWeight() - targetWeight;
 
                 System.out.println("Current BMI: " + currentBMI);
-                System.out.println("Weight to reduce to achieve BMI of " + targetBMI + ": " + weightToReduce + " kg");
+                System.out.println("Weight to reduce to achieve BMI of " + TARGET_BMI + ": " + weightToReduce + " kg");
             } else {
                 System.out.println("No InBody information available to calculate weight reduction.");
             }
@@ -189,7 +195,9 @@ public int getCusId()
     @Override
     void displayDetails() {
         System.out.println("Customer Details:");
-        displayBasicInfo();
+        System.out.println("Email: " + getEmail());
+        System.out.println("Address: " + getAddress());
+        System.out.println("Gender: " + gender);
 
     }
 }

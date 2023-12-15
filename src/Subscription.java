@@ -3,9 +3,9 @@ import java.io.Serializable;
 public class Subscription implements Serializable {
    private int coach_id;
  private int customer_id;
- MemberShipPlan membership;
+ MembershipPlan membership;
 
- public subcription(int customer_id,int coach_id,MemberShipPlan membership){
+ public Subscription(int customer_id,int coach_id,MembershipPlan membership){
      this.customer_id =customer_id;
      this.coach_id = coach_id;
      this.membership = membership;

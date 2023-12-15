@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 public class MembershipPlan  {
     private LocalDate startDate;
-    private LocalDate endDate;
+    private static LocalDate endDate;
     private String MonthlyPlan;
     private int no_of_months_registered;
     private float price_of_the_membership_plan;
