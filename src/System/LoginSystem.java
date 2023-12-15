@@ -1,5 +1,7 @@
-import java.awt.*;
-import java.util.ArrayList;
+package System;
+
+import User.Customer;
+
 import java.util.List;
 
 public class LoginSystem {

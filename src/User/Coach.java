@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package User;
+
 import java.util.List;
 public class Coach extends Person
 
@@ -39,7 +40,7 @@ public class Coach extends Person
         return numberofTrainee;
     }
 
-    private boolean isIdExists(int id, List <Coach> existingCoaches) {
+    public boolean isIdExists(int id, List <Coach> existingCoaches) {
         // Check if the ID already exists in the list of coaches
         for (Coach coach : existingCoaches) {
             if (coach.getCoId() == id) {
@@ -54,4 +55,5 @@ public class Coach extends Person
     {
         System.out.println("Working Hours: " + workingHours);
     }
+
 }
