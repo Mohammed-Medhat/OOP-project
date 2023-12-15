@@ -1,4 +1,4 @@
-package subscription_plan;
+package Subscription_plan;
 
 import java.util.Date;
 

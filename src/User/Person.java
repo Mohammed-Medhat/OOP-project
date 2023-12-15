@@ -12,7 +12,7 @@ abstract public class Person implements Serializable {
     private String email;
     private String password;
 
-    public Person( String name, char gender, String address, String phoneNumber, String email, String password) {
+    public Person(String name, char gender, String address, String phoneNumber, String email, String password) {
 
         this.name = name;
         this.gender = gender;
@@ -25,15 +25,13 @@ abstract public class Person implements Serializable {
     protected Person() {
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return password;
-   }
+    }
+
     public String getName() {
         return name;
     }
-
-
-
 
 
     public String getAddress() {
@@ -44,7 +42,7 @@ abstract public class Person implements Serializable {
         this.address = address;
     }
 
-    public String  getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -72,12 +70,20 @@ abstract public class Person implements Serializable {
         System.out.println("Phone Number: " + getPhoneNumber());
         System.out.println("Email: " + getEmail());
     }
-    private static class IdGenerator {
-        private static int nextId = 1;
 
-        public static int nextId() {
-            return nextId++;
-        }
+
+    protected void setName(String name) {
+        this.name = name;
+    }
+
+    protected char getGender() {
+        return gender;
+    }
+
+    protected void setGender(char gender) {
+        this.gender = gender;
     }
 
 }
+
+
