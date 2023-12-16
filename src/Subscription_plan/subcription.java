@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class subcription {
  private int coach_id;
  private int customer_id;
- testPackage.MembershipPlan membership;
+ MembershipPlan membership;
     Scanner scanner = new Scanner(System.in);
 
- public subcription(int customer_id, int coach_id, testPackage.MembershipPlan membership){
+ public subcription(int customer_id, int coach_id,MembershipPlan membership){
      this.customer_id =customer_id;
      this.coach_id = coach_id;
      this.membership = membership;
