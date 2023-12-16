@@ -1,9 +1,9 @@
 package User;
 
 import Subscription_plan.InBody;
+import Subscription_plan.MembershipPlan;
 import Subscription_plan.subcription;
 import System.Equipments;
-import testPackage.MembershipPlan;
 
 import java.util.ArrayList;
 import java.util.Date;
