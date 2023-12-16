@@ -38,7 +38,7 @@ public class subcription {
     }
 
     public void historySubscriptions(){
-     
+
         System.out.println("Enter Customer ID to show his subscription history:");
         int id_history = scanner.nextInt();
         if (id_history == getCustomer_id()) {
@@ -51,15 +51,15 @@ public class subcription {
 
     }
 
-public void checkCustomersInMonth(){
-    System.out.println("enter month:");
-    int month = scanner.nextInt();
-    for (Customer customer: String){
-    if (month == membership.getNo_of_months_registered()){
-        System.out.println(Customer.getName());
-    }
-    }
-}
+//public void checkCustomersInMonth(){
+//    System.out.println("enter month:");
+//    int month = scanner.nextInt();
+//    for (Customer customer: String){
+//    if (month == membership.getNo_of_months_registered()){
+//        System.out.println(Customer.getName());
+//    }
+//    }
+//}
 
 
 
