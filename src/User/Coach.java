@@ -1,9 +1,13 @@
 package User;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 public class Coach extends Person
 
 {
+    public static List <Coach> gcoach = new ArrayList<>();
     private int coId;
      private  int workingHours;
      public int numberofTrainee ;
@@ -39,6 +43,39 @@ public class Coach extends Person
     public int getNumberOfTrainee() {
         return numberofTrainee;
     }
+
+
+    public static void addcoach(List <Coach> gcoach ) {
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("Enter coach name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter coach id : ");
+        int coId = scanner.nextInt();
+        System.out.println("enter coach gender:");
+        String gender = scanner.next();
+        System.out.println("enter coach address:");
+        String address = scanner.nextLine();
+        System.out.println("enter phone number:");
+        String phoneNumber=scanner.nextLine();
+        System.out.println("enter email:");
+        String email=scanner.nextLine();
+        System.out.println("enter working Hours");
+        int workingHours = scanner.nextInt();
+        System.out.println("enter password");
+        String password= scanner.nextLine();
+        System.out.println("enter number of trainees:");
+        int numberofTrainee= scanner.nextInt();
+    }
+    public void displayallcoachesinfo(){
+         for( Coach C :gcoach ){
+             System.out.println("coach name"+name +"coach id "+coId+"coach gender"+gender+"address: "+getAddress()+" phone  number "
+                     +getPhoneNumber()+"  email "+getEmail()+"working hours : "+workingHours+"password"+getPassword()
+             + "number of trainees"+numberofTrainee);
+
+         }
+
+    }
+
 
     public boolean isIdExists(int id, List <Coach> existingCoaches) {
         // Check if the ID already exists in the list of coaches
