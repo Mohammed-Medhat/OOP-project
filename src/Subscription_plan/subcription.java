@@ -56,7 +56,7 @@ public void checkCustomersInMonth(){
     int month = scanner.nextInt();
     for (Customer customer: String){
     if (month == membership.getNo_of_months_registered()){
-        System.out.println(getCustomer_id());
+        System.out.println(Customer.getName());
     }
     }
 }
