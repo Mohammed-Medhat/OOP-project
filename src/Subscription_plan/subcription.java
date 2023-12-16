@@ -54,8 +54,10 @@ public class subcription {
 public void checkCustomersInMonth(){
     System.out.println("enter month:");
     int month = scanner.nextInt();
+    for (Customer customer: String){
     if (month == membership.getNo_of_months_registered()){
         System.out.println(getCustomer_id());
+    }
     }
 }
 
