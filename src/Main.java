@@ -1,7 +1,13 @@
 import User.*;
 import System.*;
+import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import java.util.*;
+
+import static User.Customer.createSampleCustomer;
 
 public class Main {
 
@@ -11,7 +17,7 @@ public class Main {
         int type = scanner.nextInt();
         scanner.nextLine();
         String filePathPerson = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Person.txt";
-     //   String filePathCoach = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Coach.txt";
+        //   String filePathCoach = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Coach.txt";
 
 //
 //        List<Coach> c=new ArrayList<>();
@@ -35,7 +41,6 @@ public class Main {
 //       c.add(new User.Coach("fargymawi", 'M', "abbasia", "152316", "far@gmail.com", 7, "123456789", 0, 1));
 //
 //        c.add(new User.Coach("Cbunk",'M',"obor","152316","bunk@gmail.com",7,"123456789",0,2));
-
 
 
         List<Person> personList = Files.readPeopleFromFile(filePathPerson);
@@ -89,7 +94,7 @@ public class Main {
 //
 //        }
 
-Admin admin=new Admin();
+        Admin admin = new Admin();
 
         admin.displayCoachesSortedByAssignedCustomers();
         personList.clear();
@@ -97,7 +102,69 @@ Admin admin=new Admin();
         personList.addAll(Gym.gcoach);
 
         Files.writePeopleToFile(personList, filePathPerson);
+        Customer customer = createSampleCustomer();
+
+        // costumer functions
+        while(true)
+        {
+            displayMenu();
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    customer.getCoachInfo(customer);
+                    break;
+                case 2:
+                    customer.displayGymEquipmentList();
+                    break;
+                case 3:
+                    customer.displayMembershipPlanDetails();
+                    break;
+                case 4:
+                    System.out.println("Enter the specific date (yyyy-mm-dd): ");
+                    String dateString = scanner.next();
+                    Date specificDate = parseDate(dateString);
+                    customer.displayInBodyInformation(specificDate);
+                    break;
+                case 5:
+                    customer.displayWeightToReduce();
+                    break;
+                case 6:
+                    customer.displayDetails();
+                    break;
+                case 7:
+                    System.out.println("Exiting program.");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+
     }
+    // menu for costumer functions
+    private static void displayMenu() {
+        System.out.println("Choose an option:");
+        System.out.println("1. Display Coach Info");
+        System.out.println("2. Display Gym Equipment List");
+        System.out.println("3. Display Membership Plan Details");
+        System.out.println("4. Display In-Body Information at Specific Date");
+        System.out.println("5. Display Weight to Reduce");
+        System.out.println("6. Display Customer Details");
+        System.out.println("7. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
+    private static Date parseDate(String dateString) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            return dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            System.out.println("Error parsing date: " + e.getMessage());
+            return null;
+        }
+    }
+
 }
 
 

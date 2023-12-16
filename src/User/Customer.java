@@ -4,10 +4,9 @@ import Subscription_plan.subcription;
 import Subscription_plan.InBody;
 import Subscription_plan.MembershipPlan;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Scanner;
 
 public class Customer extends Person {
     private int cusID;
@@ -193,10 +192,39 @@ public class Customer extends Person {
                 System.out.println("Error calculating weight reduction: " + e.getMessage());
             }
         }
+    public static Customer createSampleCustomer() {
+        // For testing purposes, you can hardcode some values or take input from the user.
+        System.out.println("Enter customer details:");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter customer ID: ");
+        int customerId = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        System.out.print("Enter customer name: ");
+        String customerName = scanner.nextLine();
+
+        System.out.print("Enter gender (M/F): ");
+        char gender = scanner.next().charAt(0);
+
+        System.out.print("Enter address: ");
+        String address = scanner.next(); // Assuming a single-word address for simplicity
+
+        System.out.print("Enter phone number: ");
+        String phoneNumber = scanner.next();
+
+        System.out.print("Enter email: ");
+        String email = scanner.next();
+
+        System.out.print("Enter password: ");
+        String password = scanner.next();
+
+        return new Customer(customerId, customerName, gender, address, phoneNumber, email, password);
+    }
 
         // Override the abstract method in Person class
         @Override
-        void displayDetails() {
+        public void displayDetails() {
             System.out.println("Customer Details:");
             System.out.println("Email: " + getEmail());
             System.out.println("Address: " + getAddress());
