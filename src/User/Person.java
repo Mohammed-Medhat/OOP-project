@@ -61,8 +61,10 @@ abstract public class Person implements Serializable {
     public void displayBasicInfo() {
 
         System.out.println("Name: " + name);
+        System.out.println("Gender: " + gender);
+        System.out.println("Address: " + getAddress());
         System.out.println("Phone Number: " + getPhoneNumber());
-
+        System.out.println("Email: " + getEmail());
     }
 
 

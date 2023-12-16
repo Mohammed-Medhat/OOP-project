@@ -39,23 +39,27 @@ public class subcription {
 
     public void historySubscriptions(){
 
-
-        System.out.println(" ID: " + getCustomer_id());
-        System.out.println("coach ID: " + getCoach_id());
-        System.out.println("registerd: " + membership.getNo_of_months_registered() + "months");
-        System.out.println("start date: " + membership.getStartDate());
-        System.out.println("End date: " + membership.getEndDate());
-
+        System.out.println("Enter Customer ID to show his subscription history:");
+        int id_history = scanner.nextInt();
+        if (id_history == getCustomer_id()) {
+            System.out.println(" ID: " + getCustomer_id());
+            System.out.println("coach ID: " + getCoach_id());
+            System.out.println("registerd: " + membership.getNo_of_months_registered() + "months");
+            System.out.println("start date: " + membership.getStartDate());
+            System.out.println("End date: " + membership.getEndDate());
+        }
 
     }
 
-public void checkCustomersInMonth(){
-    System.out.println("enter month:");
-    int month = scanner.nextInt();
-    if (month == membership.getNo_of_months_registered()){
-        System.out.println(getCustomer_id());
-    }
-}
+//public void checkCustomersInMonth(){
+//    System.out.println("enter month:");
+//    int month = scanner.nextInt();
+//    for (Customer customer: String){
+//    if (month == membership.getNo_of_months_registered()){
+//        System.out.println(Customer.getName());
+//    }
+//    }
+//}
 
 
 

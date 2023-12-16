@@ -1,8 +1,10 @@
 package User;
-import System.Equipments;
-import Subscription_plan.subcription;
+
 import Subscription_plan.InBody;
+import Subscription_plan.subcription;
+import System.Equipments;
 import testPackage.MembershipPlan;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -51,21 +53,21 @@ public class Customer extends Person {
 
 
 
-        public subcription getSubscription() {
-            return subscription;
-        }
+    public subcription getSubscription() {
+        return subscription;
+    }
 
-        public void setSubscription(subcription subscription) {
-            this.subscription = subscription;
-        }
+    public void setSubscription(subcription subscription) {
+        this.subscription = subscription;
+    }
 
-        public ArrayList<InBody> getInBodies() {
-            return inBodies;
-        }
+    public ArrayList<InBody> getInBodies() {
+        return inBodies;
+    }
 
-        public void addInBody(InBody inBody) {
-            inBodies.add(inBody);
-        }
+    public void addInBody(InBody inBody) {
+        inBodies.add(inBody);
+    }
 
         public Coach getCoach() {
             return coach;
@@ -79,13 +81,13 @@ public class Customer extends Person {
             coach.numberofTrainee++;
         }
 
-        public ArrayList<Equipments> getGymEquipments() {
-            return gymEquipments;
-        }
+    public ArrayList<Equipments> getGymEquipments() {
+        return gymEquipments;
+    }
 
-        public void addGymEquipment(Equipments equipment) {
-            gymEquipments.add(equipment);
-        }
+    public void addGymEquipment(Equipments equipment) {
+        gymEquipments.add(equipment);
+    }
 
         //  Get coach info for the costumer (Name, Phone number, working hours)
         public void getCoachInfo(Customer customer) {

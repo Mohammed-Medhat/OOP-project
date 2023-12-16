@@ -1,9 +1,6 @@
-package testPackage;
-
+package Subscription_plan;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class MembershipPlan  {
@@ -13,9 +10,6 @@ public class MembershipPlan  {
     private int no_of_months_registered;
     private int price;
 
-    private ArrayList<MembershipPlan> member;
-
-
     Scanner scanner = new Scanner(System.in);
 
     public MembershipPlan(LocalDate startDate, LocalDate endDate, String MonthlyPlan, int no_of_months_registered, int price) {
@@ -24,9 +18,7 @@ public class MembershipPlan  {
         this.MonthlyPlan = MonthlyPlan;
         this.no_of_months_registered = no_of_months_registered;
         this.price = price;
-        this.member = new ArrayList<>();
     }
-
 
     public LocalDate getStartDate() {
         return startDate;
@@ -50,9 +42,6 @@ public class MembershipPlan  {
 
     public int getPrice() {
         return price;
-    }
-    public void storeMembersinfo(MembershipPlan membershipPlan){
-        member.add(membershipPlan);
     }
 
     public String toString(){
@@ -160,5 +149,4 @@ public class MembershipPlan  {
         // Calculate the difference between end date and start date
         return ChronoUnit.DAYS.between(LocalDate.now(), getEndDate());
     }
-
 }
