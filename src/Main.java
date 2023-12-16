@@ -4,9 +4,7 @@ import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import java.util.*;
-
 import static User.Customer.createSampleCustomer;
 
 public class Main {

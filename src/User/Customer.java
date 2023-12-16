@@ -2,7 +2,7 @@ package User;
 import System.Equipments;
 import Subscription_plan.subcription;
 import Subscription_plan.InBody;
-import Subscription_plan.MembershipPlan;
+import testPackage.MembershipPlan;
 
 import java.util.ArrayList;
 import java.util.Date;
