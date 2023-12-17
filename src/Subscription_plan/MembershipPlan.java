@@ -1,4 +1,7 @@
 package Subscription_plan;
+import User.Customer;
+import System.*;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
@@ -73,28 +76,48 @@ public class MembershipPlan  {
                 "3 for 6 months" +
                 "4 for 9 months" +
                 "5 for 1 year");
+        LocalDate today=LocalDate.now();
         int y = scanner.nextInt();
+        startDate=LocalDate.now();
         if (y == 1) {
             no_of_months_registered = 1;
             price = 600;
+            endDate=startDate.plusMonths(1);
         } else if (y == 2) {
             no_of_months_registered = 3;
             price = 1500;
+            endDate=startDate.plusMonths(3);
         }
         else if (y == 3) {
             no_of_months_registered = 6;
             price = 2500;
+            endDate=startDate.plusMonths(6);
         }
         else if (y == 4) {
             no_of_months_registered = 9;
             price = 3200;
+            endDate=startDate.plusMonths(9);
         }
         else if (y == 5) {
             no_of_months_registered = 12;
             price = 4000;
+            endDate=startDate.plusMonths(12);
         }
 
     }
+    public void displayGYMIncomeInGivenMonth(int month){
+        int sum=0;
+
+        for(Customer c: Gym.gcus){
+            if(c.getMembership().startDate.getMonthValue()==month) {
+                sum += c.getMembership().getPrice();
+            }
+        }
+        System.out.println(sum);
+
+
+    }
+
 
 
 

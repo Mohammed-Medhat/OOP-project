@@ -19,15 +19,14 @@ public class Main {
         int type = scanner.nextInt();
         scanner.nextLine();
         String filePathPerson = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Person.txt";
-        //   String filePathCoach = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Coach.txt";
-        System.out.print("Username\\n");
+        //   String filePathequi = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Equipment.txt";
+        System.out.print("Username\n");
         String username= scanner.nextLine();
-        System.out.print("Username\\n");
+        System.out.print("Username\n");
         String password= scanner.nextLine();
 
 //
-//        List<Coach> c=new ArrayList<>();
-//        List<Customer> c1=new ArrayList<>();
+//
 
 //User.Customer addded in files
 //        c1.add(new User.Customer(0, "Mohammed", 'm', "ain shams", "01014487283", "mo@gmail.com", "mamadou"));
@@ -41,12 +40,12 @@ public class Main {
 //        //equipment added in files
 //
 //        //coaches added in files
-//        c.add(new User.Coach("big rammi", 'M', "ainshams", "152316", "rami@gmail.com", 7, "123456789", 0, 0));
+//        c.add(new User.Coach("big rammi", 'M', "ainshams", "152316", "rami@gmail.com", 7, "123456789"));
 //
 //
-//       c.add(new User.Coach("fargymawi", 'M', "abbasia", "152316", "far@gmail.com", 7, "123456789", 0, 1));
+//       c.add(new User.Coach("fargymawi", 'M', "abbasia", "152316", "far@gmail.com", 7, "123456789"));
 //
-//        c.add(new User.Coach("Cbunk",'M',"obor","152316","bunk@gmail.com",7,"123456789",0,2));
+//        c.add(new User.Coach("Cbunk",'M',"obor","152316","bunk@gmail.com",7,"123456789"));
 
 
         List<Person> personList = Files.readPeopleFromFile(filePathPerson);
@@ -68,6 +67,8 @@ boolean close=true;
      while(close) {
     switch (type) {
 
+// Admin functions////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         case 1:
             Admin admin=new Admin();
@@ -79,28 +80,29 @@ boolean close=true;
                 scanner.nextLine();
                 switch (choice) {
                     case 1:
-                        System.out.println("Pleas enter Coach ID:");
-                        int CoachID= Gym.gcoach.get(0).findCoach(scanner.nextInt());
-                        Gym.gcoach.get(CoachID).showCustomers();
-
-
-
-
+                        Gym.gcoach.get(0).addcoach();
+                        
                         break;
                     case 2:
+                        admin.displayCoachesSortedByAssignedCustomers();
 
                         break;
                     case 3:
+                        Gym.gcus.get(0).getMembership().displayGYMIncomeInGivenMonth(scanner.nextInt());
 
                         break;
                     case 4:
+                        Gym.gcus.get(0).getSubscription().Display_all_the_customers_that_subscribed_to_the_gym_in_a_given_month(scanner.nextInt());
 
                         break;
                     case 5:
-
+                        System.out.println("Pleas enter Coach ID:");
+                        Gym.gcus.get(0).Show_the_subscription_history_for_a_customer(scanner.nextInt());
                         break;
                     case 6:
-                        Gym.gcoach.get(0).addcoach();
+                        System.out.println("Pleas enter Coach ID:");
+                        int CoachID= Gym.gcoach.get(0).findCoach(scanner.nextInt());
+                        Gym.gcoach.get(CoachID).showCustomers();
                         break;
                     case 7:
                         System.out.println("Exiting program.");
@@ -113,6 +115,8 @@ boolean close=true;
                 }
             }
             break;
+
+         // costumer functions//////////////////////////////////////////////////////////////////////////////////
 
 
         case 2:
@@ -159,6 +163,8 @@ boolean close=true;
 
 
             }
+//coach functions//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         case 3:
             Coach coach=new Coach();
@@ -178,7 +184,7 @@ boolean close=true;
 
 
 
-        // costumer functions
+
 
         personList.clear();
         personList.addAll(Gym.gcus);
@@ -201,9 +207,9 @@ boolean close=true;
     }
     private static void displayMenuAdmin() {
         System.out.println("Choose an option:");
-        System.out.print("1.Display Coach Info                                                        2.Display the coaches sorted in terms of the most assigned number of customers to the coaches.\n" +
-                         "3.Display the GYM income in a given month.                                  4.Display all the customers that subscribed to the gym in a given month \n" +
-                         "5.Display all the customers that subscribed to the gym in a given day       6.Display all the customers of a specific coach.\n");
+        System.out.print("1.Add Coach                                                                 2.Display the coaches sorted in terms of the most assigned number of customers to the coaches.\n" +
+                         "3.Display the GYM income in a given month.                                  4.Display all the customers that subscribed to the gym in a given month or a day \n" +
+                         "5.Show the subscription history for a customer.                             6.Display all the customers of a specific coach.\n");
 
         System.out.print("Enter your choice: ");
     }

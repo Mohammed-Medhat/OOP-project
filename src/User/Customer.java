@@ -5,13 +5,16 @@ import Subscription_plan.MembershipPlan;
 import Subscription_plan.subcription;
 import System.Equipments;
 import System.*;
+import Subscription_plan.*;
+import jdk.jshell.JShell;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Customer extends Person {
     private int cusID;
-    private subcription subscription;
+    private ArrayList <subcription> subscription=new ArrayList<>();
     private ArrayList<InBody> inBodies;
     private Coach coach;
     private ArrayList<Equipments> gymEquipments;
@@ -22,7 +25,7 @@ public class Customer extends Person {
 
             super( name, gender, address, phoneNumber, email,password);
 
-            this.subscription = null;
+            subscription = null;
             this.inBodies = new ArrayList<>();
             this.gymEquipments = new ArrayList<>();
             this.coach = null;
@@ -55,11 +58,12 @@ public class Customer extends Person {
 
 
     public subcription getSubscription() {
-        return subscription;
+        return subscription.get(subscription.size()-1);
     }
 
     public void setSubscription(subcription subscription) {
-        this.subscription = subscription;
+        Subscription_plan.subcription sub= subscription;
+            this.subscription.add(subscription);
     }
 
     public ArrayList<InBody> getInBodies() {
@@ -223,6 +227,16 @@ public class Customer extends Person {
 
         return new Customer(customerId, customerName, gender, address, phoneNumber, email, password);
     }
+
+    public void Show_the_subscription_history_for_a_customer(int id){
+        for (Customer c:Gym.gcus){
+            if(c.getCusId()==id){
+                for(int i=0;i<c.subscription.size();i++) {
+                System.out.println(c.subscription.get(i).getMembership().getPrice());
+                }
+            }
+        }
+        }
 
     @Override
     public int login(String username, String password) {

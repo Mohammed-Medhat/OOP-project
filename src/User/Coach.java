@@ -47,8 +47,13 @@ public class Coach extends Person
     }
 
 public void showCustomers(){
+        if(customerList.isEmpty()){
+            System.out.println("There is no Customers this Coach train");
+        }
+        else{
         for(Customer c:customerList){
         System.out.println(c.getName());
+        }
         }
 }
     public static void addcoach() {

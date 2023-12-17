@@ -1,4 +1,6 @@
 package Subscription_plan;
+import User.Customer;
+import System.*;
 import java.util.Scanner;
 
 public class subcription {
@@ -20,6 +22,11 @@ public class subcription {
     public int getCustomer_id() {
         return customer_id;
     }
+
+    public MembershipPlan getMembership() {
+        return membership;
+    }
+
     public String toString(){
      return getCustomer_id() + " " + getCoach_id() + " " + membership;
     }
@@ -37,6 +44,7 @@ public class subcription {
             System.out.println("your membership was ended");
     }
 
+
     public void historySubscriptions(){
 
         System.out.println("Enter Customer ID to show his subscription history:");
@@ -49,18 +57,30 @@ public class subcription {
             System.out.println("End date: " + membership.getEndDate());
         }
 
+
+    }
+    public void Display_all_the_customers_that_subscribed_to_the_gym_in_a_given_month(int MorD){
+        System.out.println("1-Day(d)   2-Month(m)");
+        char x=scanner.nextLine().charAt(0);
+
+        for(Customer c: Gym.gcus){
+            if(c.getMembership().getStartDate().getMonthValue()== MorD && x == 'm') {
+                System.out.println(c.getName());
+
+            }
+            else if(x=='d'&&c.getMembership().getStartDate().getDayOfMonth()== MorD){
+                System.out.println(c.getName());
+            }
+        }
+
+
     }
 
-//public void checkCustomersInMonth(){
-//    System.out.println("enter month:");
-//    int month = scanner.nextInt();
-//    for (Customer customer: String){
-//    if (month == membership.getNo_of_months_registered()){
-//        System.out.println(Customer.getName());
-//    }
-//    }
-//}
+
+ }
 
 
 
-}
+
+
+

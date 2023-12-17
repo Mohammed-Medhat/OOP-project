@@ -16,9 +16,6 @@ public class Files {
         }
     }
 
-
-
-
     public static List<Person> readPeopleFromFile(String fileName) {
         List<Person> people = null;
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName))) {
@@ -28,4 +25,21 @@ public class Files {
         }
         return people;
 }
+    public static void writeequiToFile(List<Equipments>equipment, String fileName) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            outputStream.writeObject(equipment);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Equipments> readequiFromFile(String fileName) {
+        List<Equipments> equipment = null;
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName))) {
+            equipment = (List<Equipments>) inputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return equipment;
+    }
 }
