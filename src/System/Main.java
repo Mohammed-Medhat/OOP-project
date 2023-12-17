@@ -25,8 +25,9 @@ public class Main {
         System.out.print("Username\n");
         String password= scanner.nextLine();
 
-//
-//
+//        ArrayList<Customer> c1=new ArrayList<>();
+//        ArrayList<Coach> c=new ArrayList<>();
+
 
 //User.Customer addded in files
 //        c1.add(new User.Customer(0, "Mohammed", 'm', "ain shams", "01014487283", "mo@gmail.com", "mamadou"));
@@ -81,7 +82,7 @@ boolean close=true;
                 switch (choice) {
                     case 1:
                         Gym.gcoach.get(0).addcoach();
-                        
+
                         break;
                     case 2:
                         admin.displayCoachesSortedByAssignedCustomers();
