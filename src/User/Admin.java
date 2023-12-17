@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static System.Gym.*;
+import static User.Customer.iscustExists;
 
 public class Admin extends Person implements Serializable {
 
@@ -31,7 +32,7 @@ public class Admin extends Person implements Serializable {
     public boolean isIdExists(int id, List<Coach> existingCoaches) {
         // Check if the ID already exists in the list of coaches
         for (Coach coach : existingCoaches) {
-            if (coach.getCoId() == id) {
+            if (Coach.getCoId() == id) {
                 return true; // ID already exists
             }
         }
@@ -41,7 +42,7 @@ public class Admin extends Person implements Serializable {
     public void addCoach(Coach coach) {
         // Check if the coach ID already exists
 
-        if (!isIdExists(coach.getCoId(), gcoach)) {
+        if (!isIdExists(Coach.getCoId(), gcoach)) {
             gcoach.add(coach);
             System.out.println("Coach added successfully.");
         } else {
@@ -51,7 +52,7 @@ public class Admin extends Person implements Serializable {
 
 
     public void editCoach(Coach updatedCoach) {
-        int coachIdToUpdate = updatedCoach.getCoId();
+        int coachIdToUpdate = Coach.getCoId();
 
         // Check if the coach with the given ID exists
         boolean coachExists = false;
@@ -80,7 +81,7 @@ public class Admin extends Person implements Serializable {
 
     public void deleteCoach(Coach deletecoach) {
         // Implement coach deletion logic
-        int coachIdTodelete = deletecoach.getCoId();
+        int coachIdTodelete = Coach.getCoId();
 
         // Check if the coach with the given ID exists
         boolean coachExists = false;
@@ -195,26 +196,24 @@ public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
         scanner.close();
     }
 
-//    public void addCus(Customer cus) {
-//        // Check if the coach ID already exists
-//
-//        if (!Customer.iscustExists(cus.getCusId(), gcus)) {
-//            gcus.add(cus);
-//            System.out.println("Customer added successfully.");
-//        } else {
-//            System.out.println("Customer with the same ID already exists. Please choose a different ID.");
-//        }
-//    }
+    public void addCus(Customer cus) {
+        // Check if the customer ID already exists
+        if (!iscustExists(Customer.getCusId())) {
+            gcus.add(cus);
+            System.out.println("Customer added successfully.");
+        } else {
+            System.out.println("Customer with the same ID already exists. Please choose a different ID.");
+        }
+    }
 
 
         public void editCustomer(Customer updatedCustomer) {
-            int customerIdToUpdate = updatedCustomer.getCusId();
+            int customerIdToUpdate = Customer.getCusId();
 
             // Check if the coach with the given ID exists
             boolean cutomerExists = false;
-            for (int i = 0; i < gcus.size(); i++) {
-                Customer existingCustomers = gcus.get(i);
-                if (existingCustomers.getCusId() == customerIdToUpdate) {
+            for (Customer existingCustomers : gcus) {
+                if (Customer.getCusId() == customerIdToUpdate) {
                     cutomerExists = true;
                     // Update coach properties with the new values
                     existingCustomers.setName(updatedCustomer.getName());
@@ -238,13 +237,13 @@ public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
 
     public void deleteCustomer(Customer customer) {
         // Implement customer deletion logic
-        int customerIdTodelete = customer.getCusId();
+        int customerIdTodelete = Customer.getCusId();
 
         // Check if the coach with the given ID exists
         boolean cutomerExists = false;
         for (int i = 0; i < gcus.size(); i++) {
             Customer existingCustomers = gcus.get(i);
-            if (existingCustomers.getCusId() == customerIdTodelete) {
+            if (Customer.getCusId() == customerIdTodelete) {
                 cutomerExists = true;
                 // Update coach properties with the new values
                 gcus.remove(i);

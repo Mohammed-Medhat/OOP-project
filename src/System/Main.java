@@ -81,7 +81,7 @@ boolean close=true;
                 scanner.nextLine();
                 switch (choice) {
                     case 1:
-                        Gym.gcoach.get(0).addcoach();
+                        addcoach();
 
                         break;
                     case 2:
@@ -208,9 +208,9 @@ boolean close=true;
     }
     private static void displayMenuAdmin() {
         System.out.println("Choose an option:");
-        System.out.print("1.Add Coach                                                                 2.Display the coaches sorted in terms of the most assigned number of customers to the coaches.\n" +
-                         "3.Display the GYM income in a given month.                                  4.Display all the customers that subscribed to the gym in a given month or a day \n" +
-                         "5.Show the subscription history for a customer.                             6.Display all the customers of a specific coach.\n");
+        System.out.print( "1. Add Coach                   2. Edit Coach                   3. Delete Coach" +
+                          "4. Add Customer                5. Edit Customer                6. Delete Customer" +
+                          "7. Add Equipment               8. Edit Equipment               9.");
 
         System.out.print("Enter your choice: ");
     }
