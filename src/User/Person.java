@@ -1,6 +1,8 @@
 package User;
 
 import java.io.Serializable;
+import java.util.List;
+
 abstract public class Person implements Serializable {
 
     public String name;
@@ -20,6 +22,9 @@ abstract public class Person implements Serializable {
         this.password = password;
     }
 
+    protected Person() {
+    }
+    public abstract int login(String username,String password) ;
 
     public String getPassword() {
         return password;

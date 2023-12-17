@@ -3,22 +3,24 @@ package User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import System.*;
 
 public class Coach extends Person
 
 {
-    public static List <Coach> gcoach = new ArrayList<>();
-    private int coId;
+    public  List <Customer> customerList = new ArrayList<>();
+    private  int coId;
      private  int workingHours;
      public int numberofTrainee ;
 
-     public Coach(String name, char gender, String address, String phoneNumber, String email,int workingHours,String password,int numberofTrainee,int n)
+     public Coach(String name, char gender, String address, String phoneNumber, String email,int workingHours,String password)
      {
          super( name,  gender,  address,  phoneNumber,  email,password);
-         setCoId(n);
+         coId=Gym.gcoach.size()+1;
          this.workingHours=workingHours;
-         this.numberofTrainee=numberofTrainee;
+
      }
+     public Coach(){};
 
     public String toString() {
         return coId + " " + gender + " " + getAddress() + " " + getPhoneNumber() + " " + getEmail();
@@ -44,15 +46,19 @@ public class Coach extends Person
         return numberofTrainee;
     }
 
-
-    public static void addcoach(List <Coach> gcoach ) {
+public void showCustomers(){
+        for(Customer c:customerList){
+        System.out.println(c.getName());
+        }
+}
+    public static void addcoach() {
         Scanner scanner=new Scanner(System.in);
         System.out.print("Enter coach name: ");
         String name = scanner.nextLine();
         System.out.print("Enter coach id : ");
         int coId = scanner.nextInt();
         System.out.println("enter coach gender:");
-        String gender = scanner.next();
+        char gender = scanner.next().charAt(0);
         System.out.println("enter coach address:");
         String address = scanner.nextLine();
         System.out.println("enter phone number:");
@@ -65,13 +71,25 @@ public class Coach extends Person
         String password= scanner.nextLine();
         System.out.println("enter number of trainees:");
         int numberofTrainee= scanner.nextInt();
+        Gym.gcoach.add(new Coach(name,gender,address,phoneNumber,email,workingHours,password));
     }
-    public void displayallcoachesinfo(){
-         for( Coach C :gcoach ){
-             System.out.println("coach name"+name +"coach id "+coId+"coach gender"+gender+"address: "+getAddress()+" phone  number "
-                     +getPhoneNumber()+"  email "+getEmail()+"working hours : "+workingHours+"password"+getPassword()
-             + "number of trainees"+numberofTrainee);
+    public int findCoach(int id){
+        for( int i=0; i<Gym.gcoach.size(); i++ ) {
+            if(Gym.gcoach.get(i).getCoId()==id){
+            return i;
+            }
 
+        }
+        return -1;
+
+    }
+    public void displayallcoachesinfo(int id){
+
+         for( Coach C :Gym.gcoach ){
+             if (C.getCoId()==id) {
+                 System.out.println("coach name" + C.getName() + "coach id " + C.getCoId() + "coach gender" + C.getGender() + "address: " + C.getAddress() + " phone  number "
+                         + C.getPhoneNumber() + "  email " + C.getEmail() + "working hours : " + C.getWorkingHours() + "number of trainees" + C.getNumberOfTrainee());
+             }
          }
 
     }
@@ -85,6 +103,17 @@ public class Coach extends Person
             }
         }
         return false; // ID is unique
+    }
+    public int login(String username, String password) {
+        for (int i = 0; i < Gym.gcoach.size(); i++) {
+            Coach coach= Gym.gcoach.get(i);
+            if (coach.getEmail().equals(username) && coach.getPassword().equals(password)) {
+
+                return i;
+
+            }
+        }
+        return -1;
     }
 
     @Override

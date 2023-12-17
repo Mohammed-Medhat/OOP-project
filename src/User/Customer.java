@@ -4,7 +4,7 @@ import Subscription_plan.InBody;
 import Subscription_plan.MembershipPlan;
 import Subscription_plan.subcription;
 import System.Equipments;
-
+import System.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -29,6 +29,7 @@ public class Customer extends Person {
             this.membership = null;
             setCusID(n);
         }
+        public Customer(){};
 
         public String toString() {
             return cusID + " " + gender + " " + getAddress() + " " + getPhoneNumber() + " " + getEmail();
@@ -195,7 +196,7 @@ public class Customer extends Person {
         }
     public static Customer createSampleCustomer() {
         // For testing purposes, you can hardcode some values or take input from the user.
-        System.out.println("Enter customer details:");
+        System.out.println("Enter customer details");
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter customer ID: ");
@@ -223,7 +224,21 @@ public class Customer extends Person {
         return new Customer(customerId, customerName, gender, address, phoneNumber, email, password);
     }
 
-        // Override the abstract method in Person class
+    @Override
+    public int login(String username, String password) {
+
+        for (int i = 0; i < Gym.gcus.size(); i++) {
+            Customer customer=Gym.gcus.get(i);
+            if (customer.getEmail().equals(username) && customer.getPassword().equals(password)) {
+
+                return i;
+
+            }
+        }
+        return -1;
+    }
+
+    // Override the abstract method in Person class
         @Override
         public void displayDetails() {
             System.out.println("Customer Details:");
@@ -232,4 +247,6 @@ public class Customer extends Person {
             System.out.println("Gender: " + gender);
 
         }
+
+
     }

@@ -14,9 +14,11 @@ public class Admin extends Person implements Serializable {
 
     public Admin() {
 
+
     }
-    public Admin(String name, char gender, String address, String phoneNumber, String email, String password) {
-        super(name, gender, address, phoneNumber, email, password);
+    public Admin(String name, char gender, String address, String phoneNumber) {
+        super(name, gender, address, phoneNumber, "Admin", "Admin");
+
     }
 
     @Override
@@ -110,16 +112,16 @@ public class Admin extends Person implements Serializable {
         // Implement equipment deletion logic
     }
 
-    public void addCus(Customer cus) {
-        // Check if the coach ID already exists
-
-        if (!Customer.iscustExists(cus.getCusId(), gcus)) {
-            gcus.add(cus);
-            System.out.println("Customer added successfully.");
-        } else {
-            System.out.println("Customer with the same ID already exists. Please choose a different ID.");
-        }
-    }
+//    public void addCus(Customer cus) {
+//        // Check if the coach ID already exists
+//
+//        if (!Customer.iscustExists(cus.getCusId(), gcus)) {
+//            gcus.add(cus);
+//            System.out.println("Customer added successfully.");
+//        } else {
+//            System.out.println("Customer with the same ID already exists. Please choose a different ID.");
+//        }
+//    }
 
 
         public void editCustomer(Customer updatedCustomer) {
@@ -200,6 +202,16 @@ public class Admin extends Person implements Serializable {
         }
 
 
+    }
+    public int login(String username, String password) {
+
+            if (this.getEmail().equals(username) && this.getPassword().equals(password)) {
+
+                return 1;
+
+            }
+
+        return -1;
     }
 }
 

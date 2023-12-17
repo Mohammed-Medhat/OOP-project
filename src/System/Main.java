@@ -8,17 +8,22 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.*;
+import static User.Coach.addcoach;
 import static User.Customer.createSampleCustomer;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("sign as \n1-admin\n2-customer \n");
+        System.out.print("sign as \n1-Admin\n2-Customer \n3-Coach\n");
         int type = scanner.nextInt();
         scanner.nextLine();
         String filePathPerson = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\Person.txt";
         //   String filePathCoach = "C:\\Users\\iShop\\IdeaProjects\\OOP project\\User.Coach.txt";
+        System.out.print("Username\\n");
+        String username= scanner.nextLine();
+        System.out.print("Username\\n");
+        String password= scanner.nextLine();
 
 //
 //        List<Coach> c=new ArrayList<>();
@@ -45,6 +50,9 @@ public class Main {
 
 
         List<Person> personList = Files.readPeopleFromFile(filePathPerson);
+//        List<Person>personList=new ArrayList<>();
+//        personList.addAll(c);
+//        personList.addAll(c1);
 
 
         for (Person person : personList) {
@@ -56,91 +64,127 @@ public class Main {
                 Gym.gcus.add(loadedCustomer);
             }
         }
+boolean close=true;
+     while(close) {
+    switch (type) {
 
 
-//        if (type == 1) {
-//            boolean Firsttime = true;
-//            outerLoop:
-//
-//            while (true) {
-//                if (Firsttime) {
-//                    while (true) {
-//                        System.out.print("Enter your email: ");
-//                        String username = scanner.nextLine();
-//
-//                        System.out.print("Enter your password: ");
-//                        String password = scanner.nextLine();
-//                        if ("admin".equals(username) && password.equals("12345")) {
-//                            System.out.println("Login successful!");
-//                            Firsttime = false;
-//                            break;
-//                        } else if (username.equals("-1")) {
-//                            break outerLoop;
-//                        } else {
-//                            System.out.println("Login failed. Invalid username or password.");
-//                        }
-//                    }
-//                    System.out.print("Choose process\n1-Show days left\n2-get coach info\n3-show equipments\nStatement 4\nStatement 5\n");
-//                    int x = scanner.nextInt();
-//                    if (x == -1) {
-//                        break;
-//                    }
-//
-//
-//                }
-//
-//
-//            }
-//
-//
-//        }
+        case 1:
+            Admin admin=new Admin();
+            int x1=admin.login(username,password);
+            boolean exit1=true;
+            while (exit1) {
+                displayMenuAdmin();
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                switch (choice) {
+                    case 1:
+                        System.out.println("Pleas enter Coach ID:");
+                        int CoachID= Gym.gcoach.get(0).findCoach(scanner.nextInt());
+                        Gym.gcoach.get(CoachID).showCustomers();
 
-        Admin admin = new Admin();
 
-        admin.displayCoachesSortedByAssignedCustomers();
+
+
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+                        Gym.gcoach.get(0).addcoach();
+                        break;
+                    case 7:
+                        System.out.println("Exiting program.");
+                        exit1=false;
+                        close=false;
+                        break;
+
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            }
+            break;
+
+
+        case 2:
+            Customer customer=new Customer();
+            int x2=customer.login(username,password);
+            boolean exit2=true;
+            while(exit2)
+            {
+                displayMenu();
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choice) {
+                    case 1:
+                        Gym.gcus.get(x2).getCoachInfo(Gym.gcus.get(x2));
+                        break;
+                    case 2:
+                        Gym.gcus.get(x2).displayGymEquipmentList();
+                        break;
+                    case 3:
+                        Gym.gcus.get(x2).displayMembershipPlanDetails();
+                        break;
+                    case 4:
+                        System.out.println("Enter the specific date (yyyy-mm-dd): ");
+                        String dateString = scanner.next();
+                        Date specificDate = parseDate(dateString);
+                        Gym.gcus.get(x2).displayInBodyInformation(specificDate);
+                        break;
+                    case 5:
+                        Gym.gcus.get(x2).displayWeightToReduce();
+                        break;
+                    case 6:
+                        Gym.gcus.get(x2).displayDetails();
+                        break;
+                    case 7:
+                        System.out.println("Exiting program.");
+                        exit2=false;
+                        close=false;
+                        break;
+
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+
+
+            }
+
+        case 3:
+            Coach coach=new Coach();
+            int x3=coach.login(username,password);
+            break;
+
+        case 4:
+            System.out.println("Exiting program.");
+            System.exit(0);
+            break;
+        default:
+            System.out.println("Invalid choice. Please try again.");
+
+    }
+}
+
+
+
+
+        // costumer functions
+
         personList.clear();
         personList.addAll(Gym.gcus);
         personList.addAll(Gym.gcoach);
-
+        System.out.println(personList.size());
         Files.writePeopleToFile(personList, filePathPerson);
-        Customer customer = createSampleCustomer();
-
-        // costumer functions
-        while(true)
-        {
-            displayMenu();
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    customer.getCoachInfo(customer);
-                    break;
-                case 2:
-                    customer.displayGymEquipmentList();
-                    break;
-                case 3:
-                    customer.displayMembershipPlanDetails();
-                    break;
-                case 4:
-                    System.out.println("Enter the specific date (yyyy-mm-dd): ");
-                    String dateString = scanner.next();
-                    Date specificDate = parseDate(dateString);
-                    customer.displayInBodyInformation(specificDate);
-                    break;
-                case 5:
-                    customer.displayWeightToReduce();
-                    break;
-                case 6:
-                    customer.displayDetails();
-                    break;
-                case 7:
-                    System.out.println("Exiting program.");
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
 
     }
     // menu for costumer functions
@@ -153,6 +197,23 @@ public class Main {
         System.out.println("5. Display Weight to Reduce");
         System.out.println("6. Display Customer Details");
         System.out.println("7. Exit");
+        System.out.print("Enter your choice: ");
+    }
+    private static void displayMenuAdmin() {
+        System.out.println("Choose an option:");
+        System.out.print("1.Display Coach Info                                                        2.Display the coaches sorted in terms of the most assigned number of customers to the coaches.\n" +
+                         "3.Display the GYM income in a given month.                                  4.Display all the customers that subscribed to the gym in a given month \n" +
+                         "5.Display all the customers that subscribed to the gym in a given day       6.Display all the customers of a specific coach.\n");
+
+        System.out.print("Enter your choice: ");
+    }
+    private static void displayMenuCoach() {
+        System.out.println("Choose an option:");
+        System.out.println("1. Show a list of all his customers.");
+        System.out.println("2. Get the inbody history of any of his customers.");
+        System.out.println("3. Get all the details of a customer by his name.");
+        System.out.println("4. Show a list of all his female/male customers.");
+        System.out.println("5. Exit");
         System.out.print("Enter your choice: ");
     }
 
