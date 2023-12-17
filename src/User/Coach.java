@@ -9,7 +9,7 @@ public class Coach extends Person
 
 {
     public  List <Customer> customerList = new ArrayList<>();
-    private  int coId;
+    private static int coId;
      private  int workingHours;
      public int numberofTrainee ;
 
@@ -30,7 +30,7 @@ public class Coach extends Person
         this.coId = n+1;
     }
 
-    public int getCoId() {
+    public static int getCoId() {
         return coId;
     }
 
@@ -80,7 +80,7 @@ public void showCustomers(){
     }
     public int findCoach(int id){
         for( int i=0; i<Gym.gcoach.size(); i++ ) {
-            if(Gym.gcoach.get(i).getCoId()==id){
+            if(getCoId()==id){
             return i;
             }
 
@@ -91,8 +91,8 @@ public void showCustomers(){
     public void displayallcoachesinfo(int id){
 
          for( Coach C :Gym.gcoach ){
-             if (C.getCoId()==id) {
-                 System.out.println("coach name" + C.getName() + "coach id " + C.getCoId() + "coach gender" + C.getGender() + "address: " + C.getAddress() + " phone  number "
+             if (getCoId()==id) {
+                 System.out.println("coach name" + C.getName() + "coach id " + getCoId() + "coach gender" + C.getGender() + "address: " + C.getAddress() + " phone  number "
                          + C.getPhoneNumber() + "  email " + C.getEmail() + "working hours : " + C.getWorkingHours() + "number of trainees" + C.getNumberOfTrainee());
              }
          }
@@ -103,7 +103,7 @@ public void showCustomers(){
     public boolean isIdExists(int id, List <Coach> existingCoaches) {
         // Check if the ID already exists in the list of coaches
         for (Coach coach : existingCoaches) {
-            if (coach.getCoId() == id) {
+            if (getCoId() == id) {
                 return true; // ID already exists
             }
         }

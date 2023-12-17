@@ -12,8 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import static System.Gym.gcus;
+
 public class Customer extends Person {
-    private int cusID;
+    private static int cusID;
     private ArrayList <subcription> subscription=new ArrayList<>();
     private ArrayList<InBody> inBodies;
     private Coach coach;
@@ -47,7 +49,7 @@ public class Customer extends Person {
         }
 
         public void setCusID(int n){
-            this.cusID=n+1;
+            cusID=n+1;
 
     }
     public static int getCusId()
@@ -228,16 +230,16 @@ public class Customer extends Person {
         return new Customer(customerId, customerName, gender, address, phoneNumber, email, password);
     }
     public static boolean iscustExists(int customerId) {
-        for (Customer customer : Gym.gcus) {
-            if (customer.getCusId() == customerId) {
+        for (Customer customer : gcus) {
+            if (getCusId() == customerId) {
                 return true; // Customer ID already exists
             }
         }
         return false; // Customer ID is unique
     }
     public void Show_the_subscription_history_for_a_customer(int id){
-        for (Customer c:Gym.gcus){
-            if(c.getCusId()==id){
+        for (Customer c: gcus){
+            if(getCusId()==id){
                 for(int i=0;i<c.subscription.size();i++) {
                 System.out.println(c.subscription.get(i).getMembership().getPrice());
                 }
@@ -248,8 +250,8 @@ public class Customer extends Person {
     @Override
     public int login(String username, String password) {
 
-        for (int i = 0; i < Gym.gcus.size(); i++) {
-            Customer customer=Gym.gcus.get(i);
+        for (int i = 0; i < gcus.size(); i++) {
+            Customer customer= gcus.get(i);
             if (customer.getEmail().equals(username) && customer.getPassword().equals(password)) {
 
                 return i;
@@ -268,14 +270,6 @@ public class Customer extends Person {
             System.out.println("Gender: " + gender);
 
         }
-        public void signup(){
-            Scanner scanner=new Scanner(System.in);
-            System.out.println("enter Username");
 
-
-            System.out.println("enter password");
-            System.out.println("enter Username");
-
-        }
 
     }
