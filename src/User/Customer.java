@@ -50,7 +50,7 @@ public class Customer extends Person {
             this.cusID=n+1;
 
     }
-    public int getCusId()
+    public static int getCusId()
     {
         return cusID;
     }
@@ -227,7 +227,14 @@ public class Customer extends Person {
 
         return new Customer(customerId, customerName, gender, address, phoneNumber, email, password);
     }
-
+    public static boolean iscustExists(int customerId) {
+        for (Customer customer : Gym.gcus) {
+            if (customer.getCusId() == customerId) {
+                return true; // Customer ID already exists
+            }
+        }
+        return false; // Customer ID is unique
+    }
     public void Show_the_subscription_history_for_a_customer(int id){
         for (Customer c:Gym.gcus){
             if(c.getCusId()==id){
@@ -261,6 +268,14 @@ public class Customer extends Person {
             System.out.println("Gender: " + gender);
 
         }
+        public void signup(){
+            Scanner scanner=new Scanner(System.in);
+            System.out.println("enter Username");
 
+
+            System.out.println("enter password");
+            System.out.println("enter Username");
+
+        }
 
     }

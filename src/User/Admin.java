@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static System.Gym.*;
+import static User.Customer.iscustExists;
 
 public class Admin extends Person implements Serializable {
 
@@ -195,16 +196,15 @@ public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
         scanner.close();
     }
 
-//    public void addCus(Customer cus) {
-//        // Check if the coach ID already exists
-//
-//        if (!Customer.iscustExists(cus.getCusId(), gcus)) {
-//            gcus.add(cus);
-//            System.out.println("Customer added successfully.");
-//        } else {
-//            System.out.println("Customer with the same ID already exists. Please choose a different ID.");
-//        }
-//    }
+    public void addCus(Customer cus) {
+        // Check if the customer ID already exists
+        if (!iscustExists(Customer.getCusId())) {
+            gcus.add(cus);
+            System.out.println("Customer added successfully.");
+        } else {
+            System.out.println("Customer with the same ID already exists. Please choose a different ID.");
+        }
+    }
 
 
         public void editCustomer(Customer updatedCustomer) {
@@ -295,6 +295,11 @@ public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
             }
 
         return -1;
+    }
+
+    @Override
+    public void signup() {
+
     }
 }
 

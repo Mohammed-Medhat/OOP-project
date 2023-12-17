@@ -58,6 +58,7 @@ abstract public class Person implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    public abstract void signup ();
 
     // abstract functions to be used in coach and costumer
     abstract void displayDetails();

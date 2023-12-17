@@ -97,7 +97,7 @@ boolean close=true;
 
                         break;
                     case 5:
-                        System.out.println("Pleas enter Coach ID:");
+                        System.out.println("Pleas enter Customer ID:");
                         Gym.gcus.get(0).Show_the_subscription_history_for_a_customer(scanner.nextInt());
                         break;
                     case 6:
@@ -160,16 +160,21 @@ boolean close=true;
 
                     default:
                         System.out.println("Invalid choice. Please try again.");
-                }
+                    }
 
 
-            }
+               }
 //coach functions//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         case 3:
             Coach coach=new Coach();
             int x3=coach.login(username,password);
+            boolean exit3=true;
+            while(exit3)
+            {
+
+            }
             break;
 
         case 4:
@@ -179,7 +184,7 @@ boolean close=true;
         default:
             System.out.println("Invalid choice. Please try again.");
 
-    }
+        }
 }
 
 

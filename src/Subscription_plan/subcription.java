@@ -65,6 +65,7 @@ public class subcription {
 
         for(Customer c: Gym.gcus){
             if(c.getMembership().getStartDate().getMonthValue()== MorD && x == 'm') {
+
                 System.out.println(c.getName());
 
             }
