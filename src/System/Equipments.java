@@ -1,5 +1,5 @@
 package System;
-
+import static System.Gym.gequipment;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +10,7 @@ public class Equipments implements Serializable {
     protected static int eqcode;
     private static int Count=0;
 
-    public Equipments(String name, int quantity,List<Equipments> equipmentList) {
+    public Equipments(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
         Count++;
@@ -45,19 +45,23 @@ public class Equipments implements Serializable {
         this.eqcode = eqcode;
     }
 
-    public static void addEquipmentFromUserInput(List<Equipments> equipmentList) {
+    public static void addEquipmentFromUserInput() {
         System.out.println("enter the number of euipments you want to add!:   ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
+        scanner.nextLine();
         Equipments[]equipments=new Equipments[choice];
         for(int i=0 ;i<choice;i++){
             System.out.print("Enter equipment name: ");
             String name = scanner.nextLine();
             System.out.print("Enter equipment quantity: ");
             int quantity = scanner.nextInt();
-            equipments[i]=new Equipments(name,quantity,equipmentList);
+            scanner.nextLine();
+            equipments[i]=new Equipments(name,quantity);
+            gequipment.add(equipments[i]);
+
         }
-        scanner.close();
+
     }
 
 

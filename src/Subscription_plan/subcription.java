@@ -60,6 +60,9 @@ public class subcription {
 
     }
     public void Display_all_the_customers_that_subscribed_to_the_gym_in_a_given_month(int MorD){
+     if (membership == null){
+         System.out.println("No memership ");
+     }
         System.out.println("1-Day(d)   2-Month(m)");
         char x=scanner.nextLine().charAt(0);
 

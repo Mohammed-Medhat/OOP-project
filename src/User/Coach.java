@@ -64,6 +64,7 @@ public void showCustomers(){
         int coId = scanner.nextInt();
         System.out.println("enter coach gender:");
         char gender = scanner.next().charAt(0);
+        scanner.nextLine();
         System.out.println("enter coach address:");
         String address = scanner.nextLine();
         System.out.println("enter phone number:");
@@ -76,7 +77,9 @@ public void showCustomers(){
         String password= scanner.nextLine();
         System.out.println("enter number of trainees:");
         int numberofTrainee= scanner.nextInt();
-        Gym.gcoach.add(new Coach(name,gender,address,phoneNumber,email,workingHours,password));
+        scanner.nextLine();
+        Coach ccc=new Coach(name,gender,address,phoneNumber,email,workingHours,password);
+        Gym.gcoach.add(ccc);
     }
     public int findCoach(int id){
         for( int i=0; i<Gym.gcoach.size(); i++ ) {
@@ -119,6 +122,11 @@ public void showCustomers(){
             }
         }
         return -1;
+    }
+
+    @Override
+    public void signup(String email) {
+
     }
 
     @Override

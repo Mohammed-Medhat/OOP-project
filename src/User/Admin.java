@@ -1,15 +1,15 @@
 package User;
+import static User.Coach.addcoach;
+import static User.Coach.getCoId;
 import System.Equipments;
-
-
-
-
+import  static System.Equipments.addEquipmentFromUserInput;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-
-import static System.Gym.*;
+import static System.Gym.gequipment;
+import static System.Gym.gcoach;
+import static System.Gym.gcus;
 import static User.Customer.iscustExists;
 
 public class Admin extends Person implements Serializable {
@@ -39,15 +39,24 @@ public class Admin extends Person implements Serializable {
         return false; // ID is unique
     }
 
-    public void addCoach(Coach coach) {
+    public void addCoach(int id) {
+        for(Coach c:gcoach){
+            if(c.getCoId()==id){
+                System.out.println("Coach with the same ID already exists. Please choose a different ID.");
+
+
+
+
+            }
+            else{
+                c.addcoach();
+                System.out.println("Coach added successfully.");
+                break;
+            }
+        }
         // Check if the coach ID already exists
 
-        if (!isIdExists(Coach.getCoId(), gcoach)) {
-            gcoach.add(coach);
-            System.out.println("Coach added successfully.");
-        } else {
-            System.out.println("Coach with the same ID already exists. Please choose a different ID.");
-        }
+
     }
 
 
@@ -100,6 +109,31 @@ public class Admin extends Person implements Serializable {
             System.out.println("Coach with ID " + coachIdTodelete + " not found.");
         }
     }
+    public static void deleteEquipment(List<Equipments> equipmentList) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the name of the equipment you want to delete: ");
+        String targetName = scanner.nextLine();
+
+        Equipments targetEquipment = null;
+
+        // Find the equipment to delete
+        for (Equipments equipment : equipmentList) {
+            if (equipment.getName().equals(targetName)) {
+                targetEquipment = equipment;
+                break;
+            }
+        }
+
+        if (targetEquipment == null) {
+            System.out.println("Equipment not found!");
+        } else {
+            equipmentList.remove(targetEquipment);
+            System.out.println("Equipment deleted successfully!");
+        }
+
+        scanner.close();
+}
 
 //    equipments to be called
 public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
@@ -141,7 +175,7 @@ public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
                 String name = scanner.nextLine();
                 System.out.print("Enter equipment quantity: ");
                 int quantity = scanner.nextInt();
-                equipments[i]=new Equipments(name,quantity,equipmentList);
+                equipments[i]=new Equipments(name,quantity);
             }
             scanner.close();
 
@@ -285,9 +319,130 @@ public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
 
 
     }
+    public void addEntity() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose an entity to add:");
+        System.out.println("1. Coach");
+        System.out.println("2. Customer");
+        System.out.println("3. Equipment");
+
+        int entityChoice = scanner.nextInt();
+        scanner.nextLine();  // Consume the newline character
+
+        switch (entityChoice) {
+            case 1:
+                addCoach(scanner.nextInt());
+                break;
+            case 2:
+                Customer.createSampleCustomer();
+
+                break;
+            case 3:
+               addEquipmentFromUserInput();
+                break;
+            default:
+                System.out.println("Invalid choice. No entity added.");
+        }
+
+
+    }
+
+    public void editEntity() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose an entity to edit:");
+        System.out.println("1. Coach");
+        System.out.println("2. Customer");
+        System.out.println("3. Equipment");
+
+        int entityChoice = scanner.nextInt();
+        scanner.nextLine();  // Consume the newline character
+
+        switch (entityChoice) {
+            case 1:
+                System.out.println("enter coach id");
+                int coach_id=scanner.nextInt();
+                scanner.nextLine();
+                for(int i=0;i<gcoach.size();i++){
+                    if(gcoach.get(i).getCoId()==coach_id){
+                        editCoach(gcoach.get(i));
+                    }
+                }
+                break;
+            case 2:
+                System.out.println("enter customer id");
+                int customer_id=scanner.nextInt();
+                scanner.nextLine();
+                for(int i=0;i<gcus.size();i++){
+                    if(gcus.get(i).getCusId()==customer_id){
+                        editCustomer(gcus.get(i));
+                    }
+                }
+
+                break;
+            case 3:
+                System.out.println("enter Equipment id");
+                int Equpment_code=scanner.nextInt();
+                scanner.nextLine();
+                for(int i=0;i<gequipment.size();i++){
+                    if(gequipment.get(i).getEqcode()==Equpment_code){
+                        editEquipment(gequipment.get(i));
+                    }
+                }
+                break;
+            default:
+                System.out.println("Invalid choice. No entity edited.");
+        }
+
+
+    }
+
+    public void deleteEntity() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose an entity to delete:");
+        System.out.println("1. Coach");
+        System.out.println("2. Customer");
+        System.out.println("3. Equipment");
+
+        int entityChoice = scanner.nextInt();
+        scanner.nextLine();  // Consume the newline character
+
+        switch (entityChoice) {
+            case 1:
+                System.out.println("enter coach id to delete");
+                int coach_id=scanner.nextInt();
+                scanner.nextLine();
+                for(int i=0;i<gcoach.size();i++){
+                    if(gcoach.get(i).getCoId()==coach_id){
+                        deleteCoach(gcoach.get(i));
+                    }
+                }
+
+                break;
+            case 2:
+                System.out.println("enter customer id");
+                int customer_id=scanner.nextInt();
+                scanner.nextLine();
+                for(int i=0;i<gcus.size();i++){
+                    if(gcus.get(i).getCusId()==customer_id){
+                        deleteCustomer(gcus.get(i));
+                    }
+                }
+                break;
+            case 3:
+                deleteEquipment(gequipment);
+                break;
+            default:
+                System.out.println("Invalid choice. No entity deleted.");
+        }
+
+
+    }
     public int login(String username, String password) {
 
-            if (this.getEmail().equals(username) && this.getPassword().equals(password)) {
+            if ("Admin".equals(username) && "Admin".equals(password)) {
 
                 return 1;
 
@@ -297,8 +452,10 @@ public static void editOrDeleteEquipment(List<Equipments> equipmentList) {
     }
 
     @Override
-    public void signup() {
+    public void signup(String email) {
 
     }
+
+
 }
 
